@@ -1,0 +1,1457 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/users": {
+      "post": {
+        "operationId": "UsersController_upsert",
+        "summary": "register a new user",
+        "description": "This operation registers a new user in hosted API. After a new user is registered, a scan for this user can be registered with /scans.",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpsertUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/users/{token}": {
+      "get": {
+        "operationId": "UsersController_findOne",
+        "summary": "get meta data of a user",
+        "description": "This operation provides the meta data for a specific user.",
+        "parameters": [
+          {
+            "name": "token",
+            "required": true,
+            "in": "path",
+            "example": "unique-user-token",
+            "description": "A unique token for the user provided by the partner",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      },
+      "patch": {
+        "operationId": "UsersController_update",
+        "summary": "update meta data of a user",
+        "description": "This operation updates the meta data for a specific user.",
+        "parameters": [
+          {
+            "name": "token",
+            "required": true,
+            "in": "path",
+            "example": "unique-user-token",
+            "description": "A unique token for the user provided by the partner",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      },
+      "delete": {
+        "operationId": "UsersController_delete",
+        "summary": "delete  a user",
+        "description": "This operation deletes a specific user.",
+        "parameters": [
+          {
+            "name": "token",
+            "required": true,
+            "in": "path",
+            "example": "unique-user-token",
+            "description": "A unique token for the user provided by the partner",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/scans": {
+      "post": {
+        "operationId": "ScansController_create",
+        "summary": "register a new scan",
+        "description": "This operation registers a new scan in hosted API.",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateScanDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "scans"
+        ]
+      },
+      "get": {
+        "operationId": "ScansController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "scans"
+        ]
+      }
+    },
+    "/scans/{id}": {
+      "get": {
+        "operationId": "ScansController_findOne",
+        "summary": "get status of a scan",
+        "description": "This operation provides the status of a specific scan.",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "example": "unique-scan-id",
+            "description": "The unique ID of the scan",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "scans"
+        ]
+      },
+      "delete": {
+        "operationId": "ScansController_remove",
+        "summary": "delete a scan",
+        "description": "This operation deletes a specific scan.",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "example": "unique-scan-id",
+            "description": "The unique ID of the scan",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "scans"
+        ]
+      }
+    },
+    "/scans/{scanId}/measurements": {
+      "get": {
+        "operationId": "MeasurementController_findOne",
+        "summary": "get body measurements of a scan",
+        "description": "This operation provides the body measurements of a specific scan.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "example": "unique-scan-id",
+            "description": "The unique ID of the scan",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeasurementDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "assets"
+        ]
+      }
+    },
+    "/scans/{scanId}/upload-url": {
+      "post": {
+        "operationId": "ScanUploadUrlController_create",
+        "summary": "get the upload url",
+        "description": "This operation provides an upload url for a specific scan for uploading capture data to Prism.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "example": "unique-scan-id",
+            "description": "The unique ID of the scan",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanUploadUrlDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "scans"
+        ]
+      }
+    },
+    "/scans/{scanId}/scan-assets": {
+      "get": {
+        "operationId": "ScanAssetsController_findOne",
+        "summary": "get asset status of a scan",
+        "description": "This operation provides the asset status of a specific scan.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "example": "unique-scan-id",
+            "description": "The unique ID of the scan",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanAssetsDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "assets"
+        ]
+      }
+    },
+    "/scans/{scanId}/asset-urls": {
+      "get": {
+        "operationId": "AssetUrlsController_findAll",
+        "summary": "get asset urls of a scan",
+        "description": "This operation provides the asset urls of a specific scan.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "example": "unique-scan-id",
+            "description": "The unique ID of the scan",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetUrlsDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "assets"
+        ]
+      }
+    },
+    "/scans/{scanId}/asset-urls/{assetType}": {
+      "get": {
+        "operationId": "AssetUrlsController_findOne",
+        "summary": "get specific asset url of a scan",
+        "description": "This operation provides a specific asset url of a specific scan.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "example": "unique-scan-id",
+            "description": "The unique ID of the scan",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "assetType",
+            "required": true,
+            "in": "path",
+            "example": "preview-image",
+            "description": "The specific asset type of the scan",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "preview-image",
+                "model",
+                "stripes"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "assets"
+        ]
+      }
+    },
+    "/scans/{scanId}/bodyfat": {
+      "get": {
+        "operationId": "BodyfatController_findOne",
+        "summary": "get bodyfat of a scan",
+        "description": "This operation provides the bodyfat of a specific scan.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "example": "unique-scan-id",
+            "description": "The unique ID of the scan",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyfatDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "assets"
+        ]
+      }
+    },
+    "/users/{userToken}/terms": {
+      "post": {
+        "operationId": "TermsController_create",
+        "parameters": [
+          {
+            "name": "userToken",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTermsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/TermsDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "terms"
+        ]
+      },
+      "get": {
+        "operationId": "TermsController_findAll",
+        "parameters": [
+          {
+            "name": "userToken",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TermsDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "terms"
+        ]
+      }
+    },
+    "/scans/{scanId}/health-report": {
+      "get": {
+        "operationId": "HealthReportController_findOne",
+        "summary": "get the health report of a scan",
+        "description": "This operation provides the health report of a specific scan.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "example": "unique-scan-id",
+            "description": "The unique ID of the scan",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthReportDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "health-report"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Prism Hosted API",
+    "description": "An API for connecting partners to Prism API",
+    "version": "1",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [
+    {
+      "url": "https://api.hosted.prismlabs.tech",
+      "description": "A production environment for Prism Hosted API"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Weight": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number",
+            "minimum": 1,
+            "description": "The numeric weight",
+            "example": 80
+          },
+          "unit": {
+            "enum": [
+              "kg",
+              "lb"
+            ],
+            "type": "string",
+            "description": "The unit of the weight value",
+            "example": "kg"
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ]
+      },
+      "Height": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number",
+            "minimum": 1,
+            "description": "The numeric height",
+            "example": 80
+          },
+          "unit": {
+            "enum": [
+              "m",
+              "in"
+            ],
+            "type": "string",
+            "description": "The unit of the height value",
+            "example": "m"
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ]
+      },
+      "UserTerms": {
+        "type": "object",
+        "properties": {
+          "accepted": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "accepted"
+        ]
+      },
+      "UpsertUserDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The email address of the user",
+            "example": "foo@bar.com"
+          },
+          "token": {
+            "type": "string",
+            "description": "A unique token for the user provided by the partner",
+            "example": "unique-user-token"
+          },
+          "weight": {
+            "description": "The user's weight",
+            "example": {
+              "value": 80,
+              "unit": "kg"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Weight"
+              }
+            ]
+          },
+          "height": {
+            "description": "The user's height",
+            "example": {
+              "value": 1.8,
+              "unit": "m"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Height"
+              }
+            ]
+          },
+          "sex": {
+            "type": "string",
+            "enum": [
+              "male",
+              "female",
+              "neutral",
+              "undefined"
+            ],
+            "description": "The user's sex",
+            "example": "male"
+          },
+          "region": {
+            "type": "string",
+            "enum": [
+              "africa",
+              "asia",
+              "caribbean",
+              "central_america",
+              "europe",
+              "north_america",
+              "oceania",
+              "south_america"
+            ],
+            "description": "The user's region",
+            "example": "north_america"
+          },
+          "usaResidence": {
+            "type": "string",
+            "description": "The user's state of residence",
+            "example": "California"
+          },
+          "birthDate": {
+            "type": "string",
+            "description": "The user's birth date",
+            "example": "1990-01-01"
+          },
+          "researchConsent": {
+            "type": "boolean",
+            "description": "Whether the user has consented to their data being used for research",
+            "example": true
+          },
+          "termsOfService": {
+            "description": "The terms of service",
+            "example": {
+              "accepted": true,
+              "version": "1"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserTerms"
+              }
+            ]
+          }
+        },
+        "required": [
+          "token",
+          "weight",
+          "height",
+          "sex",
+          "region",
+          "birthDate",
+          "researchConsent",
+          "termsOfService"
+        ]
+      },
+      "UserDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the user",
+            "example": "unique-user-id"
+          },
+          "sex": {
+            "type": "string",
+            "enum": [
+              "male",
+              "female",
+              "neutral",
+              "undefined"
+            ],
+            "description": "The user's sex",
+            "example": "male"
+          },
+          "region": {
+            "type": "string",
+            "enum": [
+              "africa",
+              "asia",
+              "caribbean",
+              "central_america",
+              "europe",
+              "north_america",
+              "oceania",
+              "south_america"
+            ],
+            "description": "The user's region",
+            "example": "north_america"
+          },
+          "usaResidence": {
+            "type": "string",
+            "nullable": true,
+            "description": "The user's state of residence",
+            "example": "California"
+          },
+          "birthDate": {
+            "type": "string",
+            "description": "The user's birth date",
+            "example": "1990-01-01"
+          },
+          "weight": {
+            "description": "The user's weight",
+            "example": {
+              "value": 80,
+              "unit": "kg"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Weight"
+              }
+            ]
+          },
+          "height": {
+            "description": "The user's height",
+            "example": {
+              "value": 1.8,
+              "unit": "m"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Height"
+              }
+            ]
+          },
+          "token": {
+            "type": "string",
+            "description": "A unique token for the user provided by the partner",
+            "example": "unique-user-token"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true,
+            "description": "The email address of the user",
+            "example": "foo@bar.com"
+          },
+          "researchConsent": {
+            "type": "boolean",
+            "description": "Whether the user has consented to their data being used for research",
+            "example": true
+          }
+        },
+        "required": [
+          "id",
+          "sex",
+          "region",
+          "birthDate",
+          "weight",
+          "height",
+          "token",
+          "researchConsent"
+        ]
+      },
+      "UpdateUserDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The email address of the user",
+            "example": "foo@bar.com"
+          },
+          "token": {
+            "type": "string",
+            "description": "A unique token for the user provided by the partner",
+            "example": "unique-user-token"
+          },
+          "weight": {
+            "description": "The user's weight",
+            "example": {
+              "value": 80,
+              "unit": "kg"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Weight"
+              }
+            ]
+          },
+          "height": {
+            "description": "The user's height",
+            "example": {
+              "value": 1.8,
+              "unit": "m"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Height"
+              }
+            ]
+          },
+          "sex": {
+            "type": "string",
+            "enum": [
+              "male",
+              "female",
+              "neutral",
+              "undefined"
+            ],
+            "description": "The user's sex",
+            "example": "male"
+          },
+          "region": {
+            "type": "string",
+            "enum": [
+              "africa",
+              "asia",
+              "caribbean",
+              "central_america",
+              "europe",
+              "north_america",
+              "oceania",
+              "south_america"
+            ],
+            "description": "The user's region",
+            "example": "north_america"
+          },
+          "usaResidence": {
+            "type": "string",
+            "description": "The user's state of residence",
+            "example": "California"
+          },
+          "birthDate": {
+            "type": "string",
+            "description": "The user's birth date",
+            "example": "1990-01-01"
+          },
+          "researchConsent": {
+            "type": "boolean",
+            "description": "Whether the user has consented to their data being used for research",
+            "example": true
+          }
+        }
+      },
+      "CreateScanDto": {
+        "type": "object",
+        "properties": {
+          "userToken": {
+            "type": "string",
+            "description": "A unique token for the user provided by the partner, that should be associated with the scan",
+            "example": "unique-user-token"
+          },
+          "deviceConfigName": {
+            "enum": [
+              "IPHONE_SCANNER",
+              "ANDROID_SCANNER"
+            ],
+            "type": "string",
+            "description": "The name of the device configuration used for the scan",
+            "example": "IPHONE_SCANNER"
+          },
+          "bodyfatMethod": {
+            "type": "string",
+            "enum": [
+              "adam",
+              "army",
+              "coco",
+              "extended_navy_thinboost",
+              "tina_fit"
+            ],
+            "description": "The requested bodyfat method for the scan",
+            "example": "coco"
+          }
+        },
+        "required": [
+          "userToken",
+          "deviceConfigName"
+        ]
+      },
+      "ScanAssetsDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the scan assets",
+            "example": "unique-scan-asset-id"
+          },
+          "scanId": {
+            "type": "string",
+            "description": "The ID of the scan associated with the assets",
+            "example": "unique-scan-id"
+          },
+          "captureData": {
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "started",
+              "succeeded",
+              "failed"
+            ],
+            "description": "The status of the capture data associated with the scan",
+            "example": "succeeded"
+          },
+          "captureDataUpdatedAt": {
+            "type": "string",
+            "nullable": true,
+            "description": "The date and time the capture data was last updated"
+          },
+          "body": {
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "started",
+              "succeeded",
+              "failed"
+            ],
+            "description": "The status of the body associated with the scan",
+            "example": "started"
+          },
+          "bodyUpdatedAt": {
+            "type": "string",
+            "nullable": true,
+            "description": "The date and time the body was last updated"
+          },
+          "fittedBody": {
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "started",
+              "succeeded",
+              "failed"
+            ],
+            "description": "The status of the fitted body associated with the scan",
+            "example": null
+          },
+          "fittedBodyUpdatedAt": {
+            "type": "string",
+            "nullable": true,
+            "description": "The date and time the fitted body was last updated"
+          },
+          "measurement": {
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "started",
+              "succeeded",
+              "failed"
+            ],
+            "description": "The status of the measurement associated with the scan",
+            "example": null
+          },
+          "measurementUpdatedAt": {
+            "type": "string",
+            "nullable": true,
+            "description": "The date and time the measurement was last updated"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "The date and time the scan assets were created"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "The date and time the scan assets were last updated"
+          }
+        },
+        "required": [
+          "id",
+          "scanId",
+          "captureData",
+          "captureDataUpdatedAt",
+          "body",
+          "bodyUpdatedAt",
+          "fittedBodyUpdatedAt",
+          "measurementUpdatedAt",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "MeasurementDto": {
+        "type": "object",
+        "properties": {
+          "neckFit": {
+            "type": "number"
+          },
+          "shoulderFit": {
+            "type": "number"
+          },
+          "upperChestFit": {
+            "type": "number"
+          },
+          "chestFit": {
+            "type": "number"
+          },
+          "lowerChestFit": {
+            "type": "number"
+          },
+          "waistFit": {
+            "type": "number"
+          },
+          "waistNavyFit": {
+            "type": "number"
+          },
+          "stomachFit": {
+            "type": "number"
+          },
+          "hipsFit": {
+            "type": "number"
+          },
+          "upperThighLeftFit": {
+            "type": "number"
+          },
+          "upperThighRightFit": {
+            "type": "number"
+          },
+          "thighLeftFit": {
+            "type": "number"
+          },
+          "thighRightFit": {
+            "type": "number"
+          },
+          "lowerThighLeftFit": {
+            "type": "number"
+          },
+          "lowerThighRightFit": {
+            "type": "number"
+          },
+          "calfLeftFit": {
+            "type": "number"
+          },
+          "calfRightFit": {
+            "type": "number"
+          },
+          "ankleLeftFit": {
+            "type": "number"
+          },
+          "ankleRightFit": {
+            "type": "number"
+          },
+          "midArmRightFit": {
+            "type": "number"
+          },
+          "midArmLeftFit": {
+            "type": "number"
+          },
+          "lowerArmRightFit": {
+            "type": "number"
+          },
+          "lowerArmLeftFit": {
+            "type": "number"
+          },
+          "waistToHipRatio": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "neckFit",
+          "shoulderFit",
+          "upperChestFit",
+          "chestFit",
+          "lowerChestFit",
+          "waistFit",
+          "waistNavyFit",
+          "stomachFit",
+          "hipsFit",
+          "upperThighLeftFit",
+          "upperThighRightFit",
+          "thighLeftFit",
+          "thighRightFit",
+          "lowerThighLeftFit",
+          "lowerThighRightFit",
+          "calfLeftFit",
+          "calfRightFit",
+          "ankleLeftFit",
+          "ankleRightFit",
+          "midArmRightFit",
+          "midArmLeftFit",
+          "lowerArmRightFit",
+          "lowerArmLeftFit",
+          "waistToHipRatio"
+        ]
+      },
+      "BodyfatDto": {
+        "type": "object",
+        "properties": {
+          "bodyfatMethod": {
+            "type": "string",
+            "enum": [
+              "adam",
+              "army",
+              "coco",
+              "extended_navy_thinboost",
+              "tina_fit"
+            ],
+            "description": "Bodyfat method for the scan",
+            "example": "coco"
+          },
+          "bodyfatPercentage": {
+            "type": "number",
+            "nullable": true,
+            "description": "Bodyfat percentage",
+            "example": 20
+          },
+          "leanMassPercentage": {
+            "type": "number",
+            "nullable": true,
+            "description": "Lean mass percentage",
+            "example": 80
+          },
+          "fatMass": {
+            "type": "number",
+            "nullable": true,
+            "description": "fat mass in kg",
+            "example": 16
+          },
+          "leanMass": {
+            "type": "number",
+            "nullable": true,
+            "description": "lean mass in kg",
+            "example": 64
+          }
+        },
+        "required": [
+          "bodyfatMethod",
+          "bodyfatPercentage",
+          "leanMassPercentage",
+          "fatMass",
+          "leanMass"
+        ]
+      },
+      "ScanDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the scan",
+            "example": "unique-scan-id"
+          },
+          "status": {
+            "enum": [
+              "CREATED",
+              "PROCESSING",
+              "READY",
+              "FAILED"
+            ],
+            "type": "string",
+            "description": "The scan status",
+            "example": "PROCESSING"
+          },
+          "prismScanId": {
+            "type": "string",
+            "description": "The ID of the scan in Prism",
+            "example": "prism-unique-scan-id"
+          },
+          "deviceConfigName": {
+            "enum": [
+              "IPHONE_SCANNER",
+              "ANDROID_SCANNER"
+            ],
+            "type": "string",
+            "description": "The name of the device configuration used for the scan",
+            "example": "IPHONE_SCANNER"
+          },
+          "weight": {
+            "description": "The user's weight",
+            "example": {
+              "value": 80,
+              "unit": "kg"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Weight"
+              }
+            ]
+          },
+          "height": {
+            "description": "The user's height",
+            "example": {
+              "value": 1.8,
+              "unit": "m"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Height"
+              }
+            ]
+          },
+          "userId": {
+            "type": "string",
+            "description": "The user ID associated with the scan",
+            "example": "unique-user-id"
+          },
+          "userToken": {
+            "type": "string",
+            "description": "The unique user token associated with the scan",
+            "example": "unique-user-token"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "The date and time the scan was created"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "The date and time the scan was last updated"
+          },
+          "scanAssets": {
+            "description": "The asset metadata associated with the scan",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ScanAssetsDto"
+              }
+            ]
+          },
+          "measurements": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MeasurementDto"
+              }
+            ]
+          },
+          "bodyfat": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BodyfatDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "prismScanId",
+          "deviceConfigName",
+          "weight",
+          "height",
+          "userId",
+          "userToken",
+          "createdAt",
+          "updatedAt",
+          "measurements",
+          "bodyfat"
+        ]
+      },
+      "ScanUploadUrlDto": {
+        "type": "object",
+        "properties": {
+          "expirationTime": {
+            "type": "string",
+            "description": "Expiration time of the signed url"
+          },
+          "url": {
+            "type": "string",
+            "description": "A signed url to upload capture data to prism",
+            "example": "https://signed-url"
+          }
+        },
+        "required": [
+          "expirationTime",
+          "url"
+        ]
+      },
+      "AssetUrlsDto": {
+        "type": "object",
+        "properties": {
+          "previewImage": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "stripes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "previewImage",
+          "model",
+          "stripes"
+        ]
+      },
+      "CreateTermsDto": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string"
+          }
+        }
+      },
+      "TermsDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "userToken": {
+            "type": "string"
+          },
+          "accepted": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "acceptanceDate": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "userId",
+          "userToken",
+          "accepted",
+          "version",
+          "acceptanceDate"
+        ]
+      },
+      "HealthReportDto": {
+        "type": "object",
+        "properties": {
+          "scan": {
+            "type": "object"
+          },
+          "user": {
+            "type": "object"
+          },
+          "bodyFatPercentageReport": {
+            "type": "object"
+          },
+          "leanMassReport": {
+            "type": "object"
+          },
+          "fatMassReport": {
+            "type": "object"
+          },
+          "waistCircumferenceReport": {
+            "type": "object"
+          },
+          "metabolismReport": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "scan",
+          "user",
+          "bodyFatPercentageReport",
+          "leanMassReport",
+          "fatMassReport",
+          "waistCircumferenceReport",
+          "metabolismReport"
+        ]
+      }
+    }
+  }
+}
