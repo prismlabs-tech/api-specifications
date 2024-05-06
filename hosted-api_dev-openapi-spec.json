@@ -958,6 +958,11 @@
             "description": "The name of the device configuration used for the scan",
             "example": "IPHONE_SCANNER"
           },
+          "assetConfigId": {
+            "type": "string",
+            "description": "The asset configuration used for the scan",
+            "example": ""
+          },
           "bodyfatMethod": {
             "type": "string",
             "enum": [
@@ -1259,6 +1264,11 @@
             "description": "The name of the device configuration used for the scan",
             "example": "IPHONE_SCANNER"
           },
+          "assetConfigId": {
+            "type": "string",
+            "description": "The asset configuration used for the scan",
+            "example": ""
+          },
           "weight": {
             "description": "The user's weight",
             "example": {
@@ -1331,6 +1341,7 @@
           "status",
           "prismScanId",
           "deviceConfigName",
+          "assetConfigId",
           "weight",
           "height",
           "userId",
