@@ -419,12 +419,12 @@
             "example": "preview-image",
             "description": "The specific asset type of the scan",
             "schema": {
-              "type": "string",
               "enum": [
                 "preview-image",
                 "model",
                 "stripes"
-              ]
+              ],
+              "type": "string"
             }
           }
         ],
