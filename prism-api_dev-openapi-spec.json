@@ -1063,6 +1063,16 @@
             }
           }
         ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBodyShapePredictionDto"
+              }
+            }
+          }
+        },
         "responses": {
           "201": {
             "description": "",
@@ -1888,6 +1898,38 @@
         "required": [
           "state",
           "scanId"
+        ]
+      },
+      "CreateBodyShapePredictionDto": {
+        "type": "object",
+        "properties": {
+          "scanId": {
+            "type": "string",
+            "example": "6380a5cf-cce5-41bc-b01b-4d42b5752d1f",
+            "description": "The id of the scan from which to make a prediction"
+          },
+          "predictionType": {
+            "type": "string",
+            "description": "The type of prediction to make",
+            "example": "WEIGHT_LOSS",
+            "enum": [
+              "WEIGHT_LOSS"
+            ]
+          },
+          "relativeWeightChange": {
+            "type": "number",
+            "description": "A percentage change of a user's weight to target for the prediction",
+            "example": -5
+          },
+          "relativeBodyFatChange": {
+            "type": "number",
+            "description": "A percentage change of a user's body fat percentage to target for the prediction",
+            "example": -10
+          }
+        },
+        "required": [
+          "scanId",
+          "predictionType"
         ]
       },
       "BodyShapePredictionDto": {
