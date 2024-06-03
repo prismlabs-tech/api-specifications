@@ -1385,6 +1385,10 @@
             "type": "string",
             "nullable": true
           },
+          "material": {
+            "type": "string",
+            "nullable": true
+          },
           "stripes": {
             "type": "string",
             "nullable": true
@@ -1394,6 +1398,7 @@
           "previewImage",
           "model",
           "texture",
+          "material",
           "stripes"
         ]
       },
