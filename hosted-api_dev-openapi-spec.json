@@ -403,9 +403,11 @@
         "description": "This operation provides a specific asset url of a specific body shape prediction.",
         "parameters": [
           {
-            "name": "bodyShaePredictionId",
+            "name": "bodyShapePredictionId",
             "required": true,
             "in": "path",
+            "example": "unique-body-shape-prediction-id",
+            "description": "The unique ID of the body shape prediction",
             "schema": {
               "type": "string"
             }
@@ -422,16 +424,6 @@
                 "model",
                 "stripes"
               ],
-              "type": "string"
-            }
-          },
-          {
-            "name": "bodyShapePredictionId",
-            "required": true,
-            "in": "path",
-            "example": "unique-body-shape-prediction-id",
-            "description": "The unique ID of the body shape prediction",
-            "schema": {
               "type": "string"
             }
           }
