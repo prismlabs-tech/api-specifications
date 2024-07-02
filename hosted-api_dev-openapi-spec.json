@@ -1492,6 +1492,10 @@
             "type": "string",
             "nullable": true
           },
+          "canonicalBody": {
+            "type": "string",
+            "nullable": true
+          },
           "texture": {
             "type": "string",
             "nullable": true
@@ -1508,6 +1512,7 @@
         "required": [
           "previewImage",
           "model",
+          "canonicalBody",
           "texture",
           "material",
           "stripes"
