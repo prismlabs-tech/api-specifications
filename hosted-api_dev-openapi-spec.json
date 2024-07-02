@@ -396,55 +396,6 @@
         ]
       }
     },
-    "/body-shape-prediction/{bodyShapePredictionId}/asset-urls/{assetType}": {
-      "get": {
-        "operationId": "BodyShapePredictionAssetUrlsController_findOne",
-        "summary": "get specific asset url of a body shape prediction",
-        "description": "This operation provides a specific asset url of a specific body shape prediction.",
-        "parameters": [
-          {
-            "name": "bodyShapePredictionId",
-            "required": true,
-            "in": "path",
-            "example": "unique-body-shape-prediction-id",
-            "description": "The unique ID of the body shape prediction",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "assetType",
-            "required": true,
-            "in": "path",
-            "example": "body-shape-prediction",
-            "description": "The specific asset type of the body shape prediction",
-            "schema": {
-              "enum": [
-                "preview-image",
-                "model",
-                "stripes"
-              ],
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json;v=1": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "body-shape-prediction"
-        ]
-      }
-    },
     "/scans/{scanId}/asset-urls": {
       "get": {
         "operationId": "ScanAssetUrlsController_findAll",
@@ -724,40 +675,6 @@
               "application/json;v=1": {
                 "schema": {
                   "$ref": "#/components/schemas/BodyShapePredictionDto"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "body-shape-prediction"
-        ]
-      }
-    },
-    "/body-shape-prediction/{bodyShapePredictionId}/body-shape-prediction-assets": {
-      "get": {
-        "operationId": "BodyShapePredictionAssetsController_findOne",
-        "summary": "get asset status of a body shape prediction",
-        "description": "This operation provides the asset status of a specific body shape prediction.",
-        "parameters": [
-          {
-            "name": "bodyShapePredictionId",
-            "required": true,
-            "in": "path",
-            "example": "unique-body-shape-prediction-id",
-            "description": "The unique ID of the body shape prediction",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json;v=1": {
-                "schema": {
-                  "$ref": "#/components/schemas/BodyShapePredictionAssetsDto"
                 }
               }
             }
@@ -1759,47 +1676,6 @@
           "predictionType",
           "targetWeight",
           "targetBodyfat",
-          "createdAt",
-          "updatedAt"
-        ]
-      },
-      "BodyShapePredictionAssetsDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique ID of the body shape prediction assets",
-            "example": "unique-body-shape-prediction-asset-id"
-          },
-          "bodyShapePredictionId": {
-            "type": "string",
-            "description": "The ID of the body shape prediction associated with the assets",
-            "example": "unique-body-shape-prediction-id"
-          },
-          "bodyShapePredictionAssetState": {
-            "type": "string",
-            "nullable": true,
-            "enum": [
-              "started",
-              "succeeded",
-              "failed"
-            ],
-            "description": "The status of the body shape prediction associated with the scan",
-            "example": "succeeded"
-          },
-          "createdAt": {
-            "type": "string",
-            "description": "The date and time the body shape prediction assets were created"
-          },
-          "updatedAt": {
-            "type": "string",
-            "description": "The date and time the the body shape prediction assets were last updated"
-          }
-        },
-        "required": [
-          "id",
-          "bodyShapePredictionId",
-          "bodyShapePredictionAssetState",
           "createdAt",
           "updatedAt"
         ]
