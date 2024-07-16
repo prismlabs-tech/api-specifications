@@ -622,7 +622,7 @@
       "post": {
         "operationId": "BodyShapePredictionController_create",
         "summary": "register a new body shape prediction",
-        "description": "This operation registers a new body shape prediction for a specific scan.",
+        "description": "This operation registers a new body shape prediction for a specific scan.\n\n**NOTE:** Either a target weight or a target body fat percentage (but not both) must be specified",
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -1607,12 +1607,12 @@
           },
           "targetWeight": {
             "type": "number",
-            "description": "The target weight for the prediction",
-            "example": 0
+            "description": "The target weight (in kg) for the prediction",
+            "example": 50
           },
           "targetBodyfat": {
             "type": "number",
-            "description": "The target bodyfat percentage for the prediction",
+            "description": "The target body fat percentage for the prediction",
             "example": 20
           }
         },
