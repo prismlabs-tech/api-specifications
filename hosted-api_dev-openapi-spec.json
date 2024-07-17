@@ -1607,12 +1607,12 @@
           },
           "targetWeight": {
             "type": "number",
-            "description": "The target weight (in kg) for the prediction",
+            "description": "The target weight (in kg) for the prediction. This or 'targetBodyfat' should be specified",
             "example": 50
           },
           "targetBodyfat": {
             "type": "number",
-            "description": "The target body fat percentage for the prediction",
+            "description": "The target body fat percentage for the prediction. This or 'targetWeight' should be specified",
             "example": 20
           }
         },
@@ -1657,12 +1657,12 @@
             "type": "number",
             "nullable": true,
             "description": "Target weight for the prediction",
-            "example": 0
+            "example": 50
           },
           "targetBodyfat": {
             "type": "number",
             "nullable": true,
-            "description": "Target bodyfat for the prediction",
+            "description": "Target body fat for the prediction",
             "example": 20
           },
           "createdAt": {
@@ -1679,8 +1679,6 @@
           "status",
           "scanId",
           "predictionType",
-          "targetWeight",
-          "targetBodyfat",
           "createdAt",
           "updatedAt"
         ]
