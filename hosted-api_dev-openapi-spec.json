@@ -599,6 +599,19 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "unit-system",
+            "required": false,
+            "in": "query",
+            "description": "The unit system in which values will be returned",
+            "schema": {
+              "enum": [
+                "metric",
+                "imperial"
+              ],
+              "type": "string"
+            }
           }
         ],
         "responses": {
