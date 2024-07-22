@@ -1,0 +1,1996 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/scans": {
+      "post": {
+        "operationId": "ScansController_create",
+        "summary": "Register a scan",
+        "description": "This operation registers a new scan in Prism. A scan <code>id</code> is returned, which will be used in subsequent requests.\n\nAfter registering a scan, capture data must be uploaded.\n\n**IMPORTANT:** The user of this scan should be updated with current information (e.g. weight) before calling this operation.",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateScanDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A bad request was made",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "A validation error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "scans"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/scans/{scanId}": {
+      "get": {
+        "operationId": "ScansController_findOne",
+        "summary": "Fetch the status of scan",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScanDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An entity could not be found",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "scans"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users": {
+      "post": {
+        "operationId": "UsersController_create",
+        "summary": "Register a new user",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A bad request was made",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "A validation error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/users/{userId}": {
+      "get": {
+        "operationId": "UsersController_findOne",
+        "summary": "Fetch a user",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "weight-unit",
+            "required": false,
+            "in": "query",
+            "description": "The unit in which the weight will be returned",
+            "schema": {
+              "enum": [
+                "kg",
+                "lb"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "height-unit",
+            "required": false,
+            "in": "query",
+            "description": "The unit in which the height will be returned",
+            "schema": {
+              "enum": [
+                "m",
+                "in"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An entity could not be found",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "UsersController_update",
+        "summary": "Update a user",
+        "description": "**IMPORTANT:** A user should be updated with current information (e.g. weight) before the creation a new scan.",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "weight-unit",
+            "required": false,
+            "in": "query",
+            "description": "The unit in which the weight will be returned",
+            "schema": {
+              "enum": [
+                "kg",
+                "lb"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "height-unit",
+            "required": false,
+            "in": "query",
+            "description": "The unit in which the height will be returned",
+            "schema": {
+              "enum": [
+                "m",
+                "in"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A bad request was made",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "A validation error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/scans/{scanId}/body": {
+      "post": {
+        "operationId": "BodiesController_create",
+        "summary": "Initiate generation of a Body asset",
+        "description": "This operation tells Prism to take validated capture data and produce a body avatar asset that can then be downloaded.\n\n**IMPORTANT:** The generation of a fitted body asset will be *automatically initiated* upon successful completion.\n\n**NOTE:** Capture data must already be in a validated state, or this request will return an error.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A bad request was made",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "A validation error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "body"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "BodiesController_findOne",
+        "summary": "Fetch the status of a Body asset creation operation",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An entity could not be found",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "body"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/scans/{scanId}/body/download-url": {
+      "post": {
+        "operationId": "BodiesController_downloadUrl",
+        "summary": "Create a download URL for a Body asset",
+        "description": "Download URLs will be valid for one hour. New URLs may be generated with further requests to this endpoint",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadUrlDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A bad request was made",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "A validation error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "body"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/scans/{scanId}/fitted-body": {
+      "get": {
+        "operationId": "FittedBodiesController_findOne",
+        "summary": "Fetch the status of a Fitted Body asset creation operation",
+        "description": "The generation of a fitted body asset is *automatically initiated* upon successful completion of a Body asset.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/FittedBodyDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An entity could not be found",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "fitted-body"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/scans/{scanId}/measurements": {
+      "post": {
+        "operationId": "MeasurementsController_create",
+        "summary": "Initiate generation of a Measurements asset",
+        "description": "This operation tells Prism to take a Fitted Body asset and produce a Measurements asset that can then be downloaded.\n\n**NOTE:** This request will return an error if a Fitted Body has not already been successfully created. This can be generated by requesting a Body Asset, a process that automatically creates a Fitted Body.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeasurementDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A bad request was made",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "A validation error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "measurements"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "MeasurementsController_findOne",
+        "summary": "Fetch the status of a Measurements asset creation operation",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeasurementDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An entity could not be found",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "measurements"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/scans/{scanId}/measurements/download-url": {
+      "post": {
+        "operationId": "MeasurementsController_downloadUrl",
+        "summary": "Create a download URL for a Measurement asset",
+        "description": "Download URLs will be valid for one hour. New URLs may be generated with further requests to this endpoint",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadUrlDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A bad request was made",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "A validation error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "measurements"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/body-shape-prediction": {
+      "post": {
+        "operationId": "BodyShapePredictionController_create",
+        "summary": "Initiate generation of a Body Shape Prediction asset",
+        "description": "This operation tells Prism to take a Fitted Body asset and produce a Body Shape Prediction asset that can then be downloaded.\n\n**NOTE:** This request will return an error if a Fitted Body has not already been successfully created. This can be generated by requesting a Body Asset, a process that automatically creates a Fitted Body.",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBodyShapePredictionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyShapePredictionDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A bad request was made",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "A validation error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "body-shape-prediction"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/body-shape-prediction/{bodyShapePredictionId}": {
+      "get": {
+        "operationId": "BodyShapePredictionController_findOne",
+        "summary": "Fetch the status of a Body Shape Prediction asset creation operation",
+        "parameters": [
+          {
+            "name": "bodyShapePredictionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyShapePredictionDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An entity could not be found",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "body-shape-prediction"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/body-shape-prediction/{bodyShapePredictionId}/download-url": {
+      "post": {
+        "operationId": "BodyShapePredictionController_downloadUrl",
+        "summary": "Create a download URL for a Body Shape Prediction asset",
+        "description": "Download URLs will be valid for one hour. New URLs may be generated with further requests to this endpoint",
+        "parameters": [
+          {
+            "name": "bodyShapePredictionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadUrlDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A bad request was made",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "A validation error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "body-shape-prediction"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/scans/{scanId}/upload-url": {
+      "post": {
+        "operationId": "UploadUrlController_createUploadUrl",
+        "summary": "Create a URL for uploading an input resource for a scan",
+        "description": "Upload URLs will be valid for one hour. New URLs may be generated with further requests to this endpoint\n\nNote: Capture data should be packaged in a zip file format.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUploadUrlDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/UploadUrlDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A bad request was made",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "A validation error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "scans-upload-url"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Prism API",
+    "description": "The Prism API provides an interface for interacting with the computer vision pipeline to generate bodymaps",
+    "version": "1",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "prism",
+      "description": ""
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api.prismlabs.tech",
+      "description": "The production server for the Prism API"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "ConsentDto": {
+        "type": "object",
+        "properties": {
+          "fullResearch": {
+            "type": "boolean",
+            "example": "true",
+            "description": "A boolean flag indicating whether the user consents to their data being used for all research purposes"
+          }
+        }
+      },
+      "CreateScanDto": {
+        "type": "object",
+        "properties": {
+          "deviceConfigId": {
+            "type": "string",
+            "example": "36b516c7-e598-40a2-9b9a-2016364657ab",
+            "description": "The id for the device config used to produce the scan"
+          },
+          "assetConfigId": {
+            "type": "string",
+            "example": "6dbade37-bb49-449f-bb8b-7bc9226a028d",
+            "description": "The id for the asset config used to produce the scan"
+          },
+          "userId": {
+            "type": "string",
+            "example": "7a50198f-d866-4772-9c2e-1b2ff8408128",
+            "description": "The id for the user who is to be scanned"
+          },
+          "consent": {
+            "example": {
+              "fullResearch": true
+            },
+            "description": "Various consent flags for the scan. If not provided, scan is opted out of all consent fields.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ConsentDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "deviceConfigId",
+          "userId"
+        ]
+      },
+      "ScanDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "7f2ec6e0-b06d-42b1-b2a1-fff59a458490",
+            "description": "The scan id"
+          },
+          "deviceConfigId": {
+            "type": "string",
+            "example": "36b516c7-e598-40a2-9b9a-2016364657ab",
+            "description": "The id for the device config used to produce the scan"
+          },
+          "assetConfigId": {
+            "type": "string",
+            "example": "6dbade37-bb49-449f-bb8b-7bc9226a028d",
+            "description": "The id for the asset config used to produce the scan"
+          },
+          "userId": {
+            "type": "string",
+            "example": "5304329f-bcb8-48f0-9661-5ac06b2515b1",
+            "description": "The id for the user associated with this scan"
+          },
+          "state": {
+            "enum": [
+              "SCAN_WAITING_FOR_INPUT",
+              "SCAN_VALIDATING_INPUT",
+              "SCAN_INPUT_VALID",
+              "SCAN_INPUT_INVALID"
+            ],
+            "type": "string",
+            "example": "SCAN_INPUT_VALID",
+            "description": "The current state of the scan. The following states are possible: \n* `SCAN_WAITING_FOR_INPUT`: The scan is waiting for an input resource to be uploaded\n* `SCAN_VALIDATING_INPUT`: The scan is validating the uploaded input \n* `SCAN_INPUT_VALID`: The scan input has been verified for use\n* `SCAN_INPUT_INVALID`: There was a problem processing the input within Prism API, such as a failed upload, invalid data, system errors, etc.\n"
+          }
+        },
+        "required": [
+          "id",
+          "deviceConfigId",
+          "userId",
+          "state"
+        ]
+      },
+      "PrismApiExceptionResponseDetail": {
+        "type": "object",
+        "properties": {
+          "loc": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "msg": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ]
+      },
+      "PrismApiExceptionResponse": {
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "number"
+          },
+          "errorSlug": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrismApiExceptionResponseDetail"
+            }
+          }
+        },
+        "required": [
+          "statusCode",
+          "errorSlug"
+        ]
+      },
+      "Weight": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "kg",
+              "lb"
+            ]
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ]
+      },
+      "Height": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "m",
+              "in"
+            ]
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ]
+      },
+      "CreateUserDto": {
+        "type": "object",
+        "properties": {
+          "sex": {
+            "type": "string",
+            "enum": [
+              "male",
+              "female",
+              "neutral",
+              "undefined"
+            ],
+            "example": "female",
+            "description": "Describes the user's sex"
+          },
+          "region": {
+            "type": "string",
+            "enum": [
+              "africa",
+              "asia",
+              "caribbean",
+              "central_america",
+              "europe",
+              "north_america",
+              "oceania",
+              "south_america",
+              "unspecified"
+            ],
+            "example": "north_america",
+            "description": "Describes the region where the user is being registered"
+          },
+          "birthYear": {
+            "type": "number",
+            "minimum": 1900,
+            "example": 1990,
+            "description": "The user's birth year"
+          },
+          "weight": {
+            "example": {
+              "value": 80,
+              "unit": "kg"
+            },
+            "description": "Describes the user's weight in kilograms (kg) or pounds (lb)",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Weight"
+              }
+            ]
+          },
+          "height": {
+            "example": {
+              "value": 1.7,
+              "unit": "m"
+            },
+            "description": "Describes the user's height in meters (m) or inches (in)",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Height"
+              }
+            ]
+          }
+        },
+        "required": [
+          "sex",
+          "region",
+          "birthYear"
+        ]
+      },
+      "UserDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "7f2ec6e0-b06d-42b1-b2a1-fff59a458490",
+            "description": "The user's registered id in Prism's system"
+          },
+          "sex": {
+            "type": "string",
+            "enum": [
+              "male",
+              "female",
+              "neutral",
+              "undefined"
+            ],
+            "example": "female",
+            "description": "Describes the user's sex"
+          },
+          "region": {
+            "type": "string",
+            "enum": [
+              "africa",
+              "asia",
+              "caribbean",
+              "central_america",
+              "europe",
+              "north_america",
+              "oceania",
+              "south_america",
+              "unspecified"
+            ],
+            "example": "north_america",
+            "description": "Describes the region where the user is being registered"
+          },
+          "birthYear": {
+            "type": "number",
+            "example": 1990,
+            "description": "The user's birth year"
+          },
+          "weight": {
+            "example": {
+              "value": 80,
+              "unit": "kg"
+            },
+            "description": "Describes the user's weight in kg or lb",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Weight"
+              }
+            ]
+          },
+          "height": {
+            "example": {
+              "value": 1.7,
+              "unit": "m"
+            },
+            "description": "Describes the user's height in m or in",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Height"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "sex",
+          "region",
+          "birthYear"
+        ]
+      },
+      "UpdateUserDto": {
+        "type": "object",
+        "properties": {
+          "sex": {
+            "type": "string",
+            "enum": [
+              "male",
+              "female",
+              "neutral",
+              "undefined"
+            ],
+            "example": "female",
+            "description": "Describes the user's sex"
+          },
+          "region": {
+            "type": "string",
+            "enum": [
+              "africa",
+              "asia",
+              "caribbean",
+              "central_america",
+              "europe",
+              "north_america",
+              "oceania",
+              "south_america",
+              "unspecified"
+            ],
+            "example": "north_america",
+            "description": "Describes the region where the user is being registered"
+          },
+          "birthYear": {
+            "type": "number",
+            "minimum": 1900,
+            "example": 1990,
+            "description": "The user's birth year"
+          },
+          "weight": {
+            "example": {
+              "value": 80,
+              "unit": "kg"
+            },
+            "description": "Describes the user's weight in kilograms (kg) or pounds (lb)",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Weight"
+              }
+            ]
+          },
+          "height": {
+            "example": {
+              "value": 1.7,
+              "unit": "m"
+            },
+            "description": "Describes the user's height in meters (m) or inches (in)",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Height"
+              }
+            ]
+          }
+        }
+      },
+      "BodyDto": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "enum": [
+              "ASSET_REQUESTED",
+              "ASSET_REQUEST_FAILED",
+              "ASSET_PROCESSING",
+              "ASSET_FAILED",
+              "ASSET_SUCCEEDED"
+            ],
+            "type": "string",
+            "example": "ASSET_SUCCEEDED",
+            "description": "Describes the current state of the asset. The following states are possible: \n* `ASSET_REQUESTED`: The asset is waiting to be processed by the pipeline\n* `ASSET_REQUEST_FAILED`: The asset request to start processing in the pipeline failed\n* `ASSET_PROCESSING`: The asset is being processed in the pipeline\n* `ASSET_FAILED`: The asset processing failed due to an error, such as a failed upload, invalid data, system errors, etc.\n* `ASSET_SUCCEEDED`: The asset processing succeeded and is ready for use\n"
+          },
+          "scanId": {
+            "type": "string",
+            "example": "c4009ab7-25c6-4756-aea1-f6047be984e7",
+            "description": "The id of the scan associated with the body asset"
+          }
+        },
+        "required": [
+          "state",
+          "scanId"
+        ]
+      },
+      "DownloadUrlDto": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "example": "https://prism-api-data-prod.s3.us-east-2.amazonaws.com/upload/a/b/capture-data/c.zip?...",
+            "description": "A URL for download a generated body"
+          },
+          "expirationTime": {
+            "type": "string",
+            "example": "2022-06-13T23:02:48Z",
+            "description": "An expiration datetime for the Body's download URL in ISO 8601 format in the UTC timezone."
+          }
+        },
+        "required": [
+          "url",
+          "expirationTime"
+        ]
+      },
+      "FittedBodyDto": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "enum": [
+              "ASSET_REQUESTED",
+              "ASSET_REQUEST_FAILED",
+              "ASSET_PROCESSING",
+              "ASSET_FAILED",
+              "ASSET_SUCCEEDED"
+            ],
+            "type": "string",
+            "example": "ASSET_SUCCEEDED",
+            "description": "Describes the current state of the asset. The following states are possible: \n* `ASSET_REQUESTED`: The asset is waiting to be processed by the pipeline\n* `ASSET_REQUEST_FAILED`: The asset request to start processing in the pipeline failed\n* `ASSET_PROCESSING`: The asset is being processed in the pipeline\n* `ASSET_FAILED`: The asset processing failed due to an error, such as a failed upload, invalid data, system errors, etc.\n* `ASSET_SUCCEEDED`: The asset processing succeeded and is ready for use\n"
+          },
+          "scanId": {
+            "type": "string",
+            "example": "824af18d-2e8d-4665-ba6b-a955106f0d31",
+            "description": "The id of the scan associated with the fitted body asset"
+          }
+        },
+        "required": [
+          "state",
+          "scanId"
+        ]
+      },
+      "MeasurementDto": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "enum": [
+              "ASSET_REQUESTED",
+              "ASSET_REQUEST_FAILED",
+              "ASSET_PROCESSING",
+              "ASSET_FAILED",
+              "ASSET_SUCCEEDED"
+            ],
+            "type": "string",
+            "example": "ASSET_SUCCEEDED",
+            "description": "Describes the current state of the asset. The following states are possible: \n* `ASSET_REQUESTED`: The asset is waiting to be processed by the pipeline\n* `ASSET_REQUEST_FAILED`: The asset request to start processing in the pipeline failed\n* `ASSET_PROCESSING`: The asset is being processed in the pipeline\n* `ASSET_FAILED`: The asset processing failed due to an error, such as a failed upload, invalid data, system errors, etc.\n* `ASSET_SUCCEEDED`: The asset processing succeeded and is ready for use\n"
+          },
+          "scanId": {
+            "type": "string",
+            "example": "6380a5cf-cce5-41bc-b01b-4d42b5752d1f",
+            "description": "The id of the scan associated with the measurements"
+          }
+        },
+        "required": [
+          "state",
+          "scanId"
+        ]
+      },
+      "CreateBodyShapePredictionDto": {
+        "type": "object",
+        "properties": {
+          "scanId": {
+            "type": "string",
+            "example": "6380a5cf-cce5-41bc-b01b-4d42b5752d1f",
+            "description": "The id of the scan from which to make a prediction"
+          },
+          "predictionType": {
+            "type": "string",
+            "description": "The type of prediction to make",
+            "example": "WEIGHT_LOSS",
+            "enum": [
+              "WEIGHT_LOSS"
+            ]
+          },
+          "relativeWeightChange": {
+            "type": "number",
+            "description": "A percentage change of a user's weight to target for the prediction",
+            "example": -5
+          },
+          "relativeBodyFatChange": {
+            "type": "number",
+            "description": "A percentage change of a user's body fat percentage to target for the prediction",
+            "example": -10
+          }
+        },
+        "required": [
+          "scanId",
+          "predictionType"
+        ]
+      },
+      "BodyShapePredictionDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "f4c2ef4a-dc5f-4d13-a6a9-43dc03c003fd",
+            "description": "The id of the body shape prediction"
+          },
+          "state": {
+            "enum": [
+              "ASSET_REQUESTED",
+              "ASSET_REQUEST_FAILED",
+              "ASSET_PROCESSING",
+              "ASSET_FAILED",
+              "ASSET_SUCCEEDED"
+            ],
+            "type": "string",
+            "example": "ASSET_SUCCEEDED",
+            "description": "Describes the current state of the asset. The following states are possible: \n* `ASSET_REQUESTED`: The asset is waiting to be processed by the pipeline\n* `ASSET_REQUEST_FAILED`: The asset request to start processing in the pipeline failed\n* `ASSET_PROCESSING`: The asset is being processed in the pipeline\n* `ASSET_FAILED`: The asset processing failed due to an error, such as a failed upload, invalid data, system errors, etc.\n* `ASSET_SUCCEEDED`: The asset processing succeeded and is ready for use\n"
+          },
+          "scanId": {
+            "type": "string",
+            "example": "6380a5cf-cce5-41bc-b01b-4d42b5752d1f",
+            "description": "The id of the scan associated with the body shape prediction"
+          }
+        },
+        "required": [
+          "id",
+          "state",
+          "scanId"
+        ]
+      },
+      "CreateUploadUrlDto": {
+        "type": "object",
+        "properties": {
+          "inputResource": {
+            "type": "string",
+            "enum": [
+              "capture",
+              "body",
+              "none"
+            ],
+            "example": "capture",
+            "description": "The type of input resource to upload to the system (defaults to capture). The following types are possible: \n* `capture`: The input resource is captured data from a scan\n* `body`: The input resource is a body ply file\n"
+          }
+        }
+      },
+      "UploadUrlDto": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "example": "https://prism-api-data-prod.s3.us-east-2.amazonaws.com/upload/a/b/capture-data/c.zip?...",
+            "description": "A URL for uploading a Scan's capture data."
+          },
+          "expirationTime": {
+            "type": "string",
+            "example": "2022-06-13T23:02:48Z",
+            "description": "An expiration datetime for the Scan's Upload URL in ISO 8601 format in the UTC timezone."
+          }
+        },
+        "required": [
+          "url",
+          "expirationTime"
+        ]
+      }
+    }
+  }
+}
