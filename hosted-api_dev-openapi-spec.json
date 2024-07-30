@@ -1588,6 +1588,9 @@
           "waistCircumferenceReport": {
             "type": "object"
           },
+          "waistToHipRatioReport": {
+            "type": "object"
+          },
           "metabolismReport": {
             "type": "object"
           }
@@ -1599,6 +1602,7 @@
           "leanMassReport",
           "fatMassReport",
           "waistCircumferenceReport",
+          "waistToHipRatioReport",
           "metabolismReport"
         ]
       },
