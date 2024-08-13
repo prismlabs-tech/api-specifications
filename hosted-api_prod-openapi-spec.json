@@ -362,9 +362,43 @@
         ]
       }
     },
+    "/body-shape-prediction/{bodyShapePredictionId}/asset-urls": {
+      "get": {
+        "operationId": "BodyShapePredictionAssetUrlsController_findAll",
+        "summary": "get asset urls of a body shape prediction",
+        "description": "This operation provides the asset urls of a specific body shape prediction.",
+        "parameters": [
+          {
+            "name": "bodyShapePredictionId",
+            "required": true,
+            "in": "path",
+            "example": "unique-body-shape-prediction-id",
+            "description": "The unique ID of the body shape prediction",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyShapePredictionAssetUrlsDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "future-me"
+        ]
+      }
+    },
     "/scans/{scanId}/asset-urls": {
       "get": {
-        "operationId": "AssetUrlsController_findAll",
+        "operationId": "ScanAssetUrlsController_findAll",
         "summary": "get asset urls of a scan",
         "description": "This operation provides the asset urls of a specific scan.",
         "parameters": [
@@ -385,7 +419,7 @@
             "content": {
               "application/json;v=1": {
                 "schema": {
-                  "$ref": "#/components/schemas/AssetUrlsDto"
+                  "$ref": "#/components/schemas/ScanAssetUrlsDto"
                 }
               }
             }
@@ -398,7 +432,7 @@
     },
     "/scans/{scanId}/asset-urls/{assetType}": {
       "get": {
-        "operationId": "AssetUrlsController_findOne",
+        "operationId": "ScanAssetUrlsController_findOne",
         "summary": "get specific asset url of a scan",
         "description": "This operation provides a specific asset url of a specific scan.",
         "parameters": [
@@ -565,6 +599,19 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "unit-system",
+            "required": false,
+            "in": "query",
+            "description": "The unit system in which values will be returned",
+            "schema": {
+              "enum": [
+                "metric",
+                "imperial"
+              ],
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -581,6 +628,73 @@
         },
         "tags": [
           "health-report"
+        ]
+      }
+    },
+    "/body-shape-prediction": {
+      "post": {
+        "operationId": "BodyShapePredictionController_create",
+        "summary": "register a new body shape prediction",
+        "description": "This operation registers a new body shape prediction for a specific scan.\n\n**NOTE:** Either a target weight or a target body fat percentage (but not both) must be specified",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBodyShapePredictionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyShapePredictionDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "future-me"
+        ]
+      }
+    },
+    "/body-shape-prediction/{bodyShapePredictionId}": {
+      "get": {
+        "operationId": "BodyShapePredictionController_findOne",
+        "summary": "get status of a body shape prediction",
+        "description": "This operation provides the status of a specific body shape prediction.",
+        "parameters": [
+          {
+            "name": "bodyShapePredictionId",
+            "required": true,
+            "in": "path",
+            "example": "unique-body-shape-prediction-id",
+            "description": "The unique ID of the body shape prediction",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyShapePredictionDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "future-me"
         ]
       }
     }
@@ -1368,7 +1482,19 @@
           "url"
         ]
       },
-      "AssetUrlsDto": {
+      "BodyShapePredictionAssetUrlsDto": {
+        "type": "object",
+        "properties": {
+          "bodyShapePrediction": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "bodyShapePrediction"
+        ]
+      },
+      "ScanAssetUrlsDto": {
         "type": "object",
         "properties": {
           "previewImage": {
@@ -1376,6 +1502,10 @@
             "nullable": true
           },
           "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "canonicalBody": {
             "type": "string",
             "nullable": true
           },
@@ -1395,6 +1525,7 @@
         "required": [
           "previewImage",
           "model",
+          "canonicalBody",
           "texture",
           "material",
           "stripes"
@@ -1457,6 +1588,9 @@
           "waistCircumferenceReport": {
             "type": "object"
           },
+          "waistToHipRatioReport": {
+            "type": "object"
+          },
           "metabolismReport": {
             "type": "object"
           }
@@ -1468,7 +1602,102 @@
           "leanMassReport",
           "fatMassReport",
           "waistCircumferenceReport",
+          "waistToHipRatioReport",
           "metabolismReport"
+        ]
+      },
+      "CreateBodyShapePredictionDto": {
+        "type": "object",
+        "properties": {
+          "scanId": {
+            "type": "string",
+            "description": "The unique ID of the scan on which the prediction should be based on",
+            "example": "unique-scan-id"
+          },
+          "predictionType": {
+            "type": "string",
+            "enum": [
+              "weight_loss"
+            ],
+            "description": "The prediction type that should be used for the prediction",
+            "example": "weight_loss"
+          },
+          "targetWeight": {
+            "type": "number",
+            "description": "The target weight (in kg) for the prediction. This or 'targetBodyfat' should be specified",
+            "example": 50
+          },
+          "targetBodyfat": {
+            "type": "number",
+            "description": "The target body fat percentage for the prediction. This or 'targetWeight' should be specified",
+            "example": 20
+          }
+        },
+        "required": [
+          "scanId",
+          "predictionType"
+        ]
+      },
+      "BodyShapePredictionDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique ID of the body shape prediction",
+            "example": "unique-body-shape-prediction-id"
+          },
+          "status": {
+            "enum": [
+              "CREATED",
+              "PROCESSING",
+              "READY",
+              "FAILED"
+            ],
+            "type": "string",
+            "description": "The body shape prediction status",
+            "example": "PROCESSING"
+          },
+          "scanId": {
+            "type": "string",
+            "description": "The ID of the scan on which the prediction is based on",
+            "example": "unique-scan-id"
+          },
+          "predictionType": {
+            "type": "string",
+            "enum": [
+              "weight_loss"
+            ],
+            "description": "The prediction type of the prediction",
+            "example": "weight_loss"
+          },
+          "targetWeight": {
+            "type": "number",
+            "nullable": true,
+            "description": "Target weight for the prediction",
+            "example": 50
+          },
+          "targetBodyfat": {
+            "type": "number",
+            "nullable": true,
+            "description": "Target body fat for the prediction",
+            "example": 20
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "The date and time the body shape prediction was created"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "The date and time the body shape prediction was last updated"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "scanId",
+          "predictionType",
+          "createdAt",
+          "updatedAt"
         ]
       }
     }
