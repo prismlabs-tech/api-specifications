@@ -781,6 +781,7 @@
         "properties": {
           "email": {
             "type": "string",
+            "nullable": true,
             "description": "The email address of the user",
             "example": "foo@bar.com"
           },
@@ -980,6 +981,7 @@
         "properties": {
           "email": {
             "type": "string",
+            "nullable": true,
             "description": "The email address of the user",
             "example": "foo@bar.com"
           },
