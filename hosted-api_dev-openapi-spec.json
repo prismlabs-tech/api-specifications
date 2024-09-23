@@ -1593,6 +1593,9 @@
           "waistToHipRatioReport": {
             "type": "object"
           },
+          "waistToHeightRatioReport": {
+            "type": "object"
+          },
           "metabolismReport": {
             "type": "object"
           }
@@ -1605,6 +1608,7 @@
           "fatMassReport",
           "waistCircumferenceReport",
           "waistToHipRatioReport",
+          "waistToHeightRatioReport",
           "metabolismReport"
         ]
       },
