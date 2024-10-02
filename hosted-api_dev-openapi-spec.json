@@ -44,9 +44,9 @@
             "name": "token",
             "required": true,
             "in": "path",
-            "example": "unique-user-token",
             "description": "A unique token for the user provided by the partner",
             "schema": {
+              "example": "unique-user-token",
               "type": "string"
             }
           }
@@ -76,9 +76,9 @@
             "name": "token",
             "required": true,
             "in": "path",
-            "example": "unique-user-token",
             "description": "A unique token for the user provided by the partner",
             "schema": {
+              "example": "unique-user-token",
               "type": "string"
             }
           }
@@ -118,9 +118,9 @@
             "name": "token",
             "required": true,
             "in": "path",
-            "example": "unique-user-token",
             "description": "A unique token for the user provided by the partner",
             "schema": {
+              "example": "unique-user-token",
               "type": "string"
             }
           }
@@ -204,9 +204,9 @@
             "name": "id",
             "required": true,
             "in": "path",
-            "example": "unique-scan-id",
             "description": "The unique ID of the scan",
             "schema": {
+              "example": "unique-scan-id",
               "type": "string"
             }
           }
@@ -236,9 +236,9 @@
             "name": "id",
             "required": true,
             "in": "path",
-            "example": "unique-scan-id",
             "description": "The unique ID of the scan",
             "schema": {
+              "example": "unique-scan-id",
               "type": "string"
             }
           }
@@ -270,9 +270,9 @@
             "name": "scanId",
             "required": true,
             "in": "path",
-            "example": "unique-scan-id",
             "description": "The unique ID of the scan",
             "schema": {
+              "example": "unique-scan-id",
               "type": "string"
             }
           }
@@ -304,9 +304,9 @@
             "name": "scanId",
             "required": true,
             "in": "path",
-            "example": "unique-scan-id",
             "description": "The unique ID of the scan",
             "schema": {
+              "example": "unique-scan-id",
               "type": "string"
             }
           }
@@ -338,9 +338,9 @@
             "name": "scanId",
             "required": true,
             "in": "path",
-            "example": "unique-scan-id",
             "description": "The unique ID of the scan",
             "schema": {
+              "example": "unique-scan-id",
               "type": "string"
             }
           }
@@ -372,9 +372,9 @@
             "name": "bodyShapePredictionId",
             "required": true,
             "in": "path",
-            "example": "unique-body-shape-prediction-id",
             "description": "The unique ID of the body shape prediction",
             "schema": {
+              "example": "unique-body-shape-prediction-id",
               "type": "string"
             }
           }
@@ -406,9 +406,9 @@
             "name": "scanId",
             "required": true,
             "in": "path",
-            "example": "unique-scan-id",
             "description": "The unique ID of the scan",
             "schema": {
+              "example": "unique-scan-id",
               "type": "string"
             }
           }
@@ -440,9 +440,9 @@
             "name": "scanId",
             "required": true,
             "in": "path",
-            "example": "unique-scan-id",
             "description": "The unique ID of the scan",
             "schema": {
+              "example": "unique-scan-id",
               "type": "string"
             }
           },
@@ -450,7 +450,6 @@
             "name": "assetType",
             "required": true,
             "in": "path",
-            "example": "preview-image",
             "description": "The specific asset type of the scan",
             "schema": {
               "enum": [
@@ -489,9 +488,9 @@
             "name": "scanId",
             "required": true,
             "in": "path",
-            "example": "unique-scan-id",
             "description": "The unique ID of the scan",
             "schema": {
+              "example": "unique-scan-id",
               "type": "string"
             }
           }
@@ -594,9 +593,9 @@
             "name": "scanId",
             "required": true,
             "in": "path",
-            "example": "unique-scan-id",
             "description": "The unique ID of the scan",
             "schema": {
+              "example": "unique-scan-id",
               "type": "string"
             }
           },
@@ -674,9 +673,9 @@
             "name": "bodyShapePredictionId",
             "required": true,
             "in": "path",
-            "example": "unique-body-shape-prediction-id",
             "description": "The unique ID of the body shape prediction",
             "schema": {
+              "example": "unique-body-shape-prediction-id",
               "type": "string"
             }
           }
