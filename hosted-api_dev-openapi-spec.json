@@ -1304,6 +1304,8 @@
             "type": "string",
             "enum": [
               "adam",
+              "army",
+              "army_athlete",
               "coco",
               "extended_navy_thinboost",
               "tina_fit"
