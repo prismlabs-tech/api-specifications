@@ -1082,6 +1082,8 @@
             "type": "string",
             "enum": [
               "adam",
+              "army",
+              "army_athlete",
               "coco",
               "extended_navy_thinboost",
               "tina_fit"
@@ -1304,6 +1306,8 @@
             "type": "string",
             "enum": [
               "adam",
+              "army",
+              "army_athlete",
               "coco",
               "extended_navy_thinboost",
               "tina_fit"
@@ -1629,11 +1633,13 @@
           },
           "targetWeight": {
             "type": "number",
+            "minimum": 1,
             "description": "The target weight (in kg) for the prediction. This or 'targetBodyfat' should be specified",
             "example": 50
           },
           "targetBodyfat": {
             "type": "number",
+            "minimum": 1,
             "description": "The target body fat percentage for the prediction. This or 'targetWeight' should be specified",
             "example": 20
           }
