@@ -1272,6 +1272,18 @@
           },
           "waistToHipRatio": {
             "type": "number"
+          },
+          "forearmLeftFit": {
+            "type": "number"
+          },
+          "forearmRightFit": {
+            "type": "number"
+          },
+          "wristLeftFit": {
+            "type": "number"
+          },
+          "wristRightFit": {
+            "type": "number"
           }
         },
         "required": [
@@ -1298,7 +1310,11 @@
           "midArmLeftFit",
           "lowerArmRightFit",
           "lowerArmLeftFit",
-          "waistToHipRatio"
+          "waistToHipRatio",
+          "forearmLeftFit",
+          "forearmRightFit",
+          "wristLeftFit",
+          "wristRightFit"
         ]
       },
       "BodyfatDto": {
