@@ -695,6 +695,38 @@
         "tags": [
           "future-me"
         ]
+      },
+      "delete": {
+        "operationId": "BodyShapePredictionController_remove",
+        "summary": "delete a body shape prediction",
+        "description": "This operation deletes a specific body shape prediction.",
+        "parameters": [
+          {
+            "name": "bodyShapePredictionId",
+            "required": true,
+            "in": "path",
+            "description": "The unique ID of the body shape prediction",
+            "schema": {
+              "example": "unique-body-shape-prediction-id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyShapePredictionDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "future-me"
+        ]
       }
     }
   },
