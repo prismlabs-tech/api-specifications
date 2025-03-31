@@ -1316,6 +1316,18 @@
           },
           "wristRightFit": {
             "type": "number"
+          },
+          "bmiPredicted": {
+            "type": "number"
+          },
+          "bmiConfidence": {
+            "type": "number"
+          },
+          "bodyRoundnessIndex": {
+            "type": "number"
+          },
+          "fullBodyVolume": {
+            "type": "number"
           }
         },
         "required": [
@@ -1346,7 +1358,11 @@
           "forearmLeftFit",
           "forearmRightFit",
           "wristLeftFit",
-          "wristRightFit"
+          "wristRightFit",
+          "bmiPredicted",
+          "bmiConfidence",
+          "bodyRoundnessIndex",
+          "fullBodyVolume"
         ]
       },
       "BodyfatDto": {
