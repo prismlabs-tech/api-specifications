@@ -1406,6 +1406,18 @@
             "nullable": true,
             "description": "lean mass in kg",
             "example": 64
+          },
+          "vatPercentage": {
+            "type": "number",
+            "nullable": true,
+            "description": "visceral adipose tissue (VAT) in %",
+            "example": 1.5
+          },
+          "vatMass": {
+            "type": "number",
+            "nullable": true,
+            "description": "visceral adipose tissue (VAT) in kg",
+            "example": 1.2
           }
         },
         "required": [
@@ -1413,7 +1425,9 @@
           "bodyfatPercentage",
           "leanMassPercentage",
           "fatMass",
-          "leanMass"
+          "leanMass",
+          "vatPercentage",
+          "vatMass"
         ]
       },
       "ScanDto": {
