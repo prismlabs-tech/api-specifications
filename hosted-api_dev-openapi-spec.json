@@ -1518,6 +1518,10 @@
               }
             ]
           },
+          "scanQuality": {
+            "type": "string",
+            "nullable": true
+          },
           "measurements": {
             "nullable": true,
             "allOf": [
@@ -1547,6 +1551,7 @@
           "userToken",
           "createdAt",
           "updatedAt",
+          "scanQuality",
           "measurements",
           "bodyfat"
         ]
