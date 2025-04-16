@@ -183,7 +183,7 @@
             "content": {
               "application/json;v=1": {
                 "schema": {
-                  "$ref": "#/components/schemas/ScanDto"
+                  "$ref": "#/components/schemas/DeletedScanDto"
                 }
               }
             }
@@ -1639,6 +1639,32 @@
         "required": [
           "statusCode",
           "errorSlug"
+        ]
+      },
+      "DeletedScanDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "7f2ec6e0-b06d-42b1-b2a1-fff59a458490",
+            "description": "The scan id"
+          },
+          "userId": {
+            "type": "string",
+            "example": "5304329f-bcb8-48f0-9661-5ac06b2515b1",
+            "description": "The id for the user associated with this scan"
+          },
+          "deletedAt": {
+            "format": "date-time",
+            "type": "string",
+            "example": "5304329f-bcb8-48f0-9661-5ac06b2515b1",
+            "description": "A timestamp for deletion"
+          }
+        },
+        "required": [
+          "id",
+          "userId",
+          "deletedAt"
         ]
       },
       "Weight": {
