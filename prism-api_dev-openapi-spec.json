@@ -1294,6 +1294,90 @@
             "bearer": []
           }
         ]
+      },
+      "delete": {
+        "operationId": "BodyShapePredictionController_delete",
+        "summary": "Delete a body shape prediction and all its associated assets",
+        "parameters": [
+          {
+            "name": "bodyShapePredictionId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyShapePredictionDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A bad request was made",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An entity could not be found",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "body-shape-prediction"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
       }
     },
     "/body-shape-prediction/{bodyShapePredictionId}/download-url": {
