@@ -557,6 +557,90 @@
             "bearer": []
           }
         ]
+      },
+      "delete": {
+        "operationId": "UsersController_delete",
+        "summary": "Delete a user and all associated scans",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeletedUserDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A bad request was made",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access. Please include a valid access token.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden access to resource. See documentation for more details.",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "An entity could not be found",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An internal server error occurred",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "users"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
       }
     },
     "/scans/{scanId}/body": {
@@ -1314,7 +1398,7 @@
             "content": {
               "application/json;v=1": {
                 "schema": {
-                  "$ref": "#/components/schemas/BodyShapePredictionDto"
+                  "$ref": "#/components/schemas/DeleteBodyShapePredictionDto"
                 }
               }
             }
@@ -1739,9 +1823,8 @@
             "description": "The id for the user associated with this scan"
           },
           "deletedAt": {
-            "format": "date-time",
             "type": "string",
-            "example": "5304329f-bcb8-48f0-9661-5ac06b2515b1",
+            "example": "2022-06-13T23:02:48Z",
             "description": "A timestamp for deletion"
           }
         },
@@ -1990,6 +2073,25 @@
           }
         }
       },
+      "DeletedUserDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "7f2ec6e0-b06d-42b1-b2a1-fff59a458490",
+            "description": "The user's registered id in Prism's system"
+          },
+          "deletedAt": {
+            "type": "string",
+            "example": "2022-06-13T23:02:48Z",
+            "description": "A timestamp for deletion"
+          }
+        },
+        "required": [
+          "id",
+          "deletedAt"
+        ]
+      },
       "BodyDto": {
         "type": "object",
         "properties": {
@@ -2149,6 +2251,31 @@
           "id",
           "state",
           "scanId"
+        ]
+      },
+      "DeleteBodyShapePredictionDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "f4c2ef4a-dc5f-4d13-a6a9-43dc03c003fd",
+            "description": "The id of the body shape prediction"
+          },
+          "scanId": {
+            "type": "string",
+            "example": "6380a5cf-cce5-41bc-b01b-4d42b5752d1f",
+            "description": "The id of the scan associated with the body shape prediction"
+          },
+          "deletedAt": {
+            "type": "string",
+            "example": "2022-06-13T23:02:48Z",
+            "description": "A timestamp for deletion"
+          }
+        },
+        "required": [
+          "id",
+          "scanId",
+          "deletedAt"
         ]
       },
       "CreateUploadUrlDto": {
