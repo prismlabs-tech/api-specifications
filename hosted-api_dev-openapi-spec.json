@@ -728,6 +728,43 @@
           "future-me"
         ]
       }
+    },
+    "/scans/{scanId}/body-shape-predictions": {
+      "get": {
+        "operationId": "BodyShapePredictionController_findByScanId",
+        "summary": "get all body shape predictions for a scan",
+        "description": "This operation returns all body shape predictions associated with a specific scan.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "description": "The unique ID of the scan",
+            "schema": {
+              "example": "unique-scan-id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BodyShapePredictionDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "future-me"
+        ]
+      }
     }
   },
   "info": {
