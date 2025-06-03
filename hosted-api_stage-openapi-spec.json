@@ -510,6 +510,48 @@
         "tags": [
           "assets"
         ]
+      },
+      "patch": {
+        "operationId": "BodyfatController_update",
+        "summary": "update bodyfat method of a scan",
+        "description": "This operation updates the bodyfat method of a scan.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "description": "The unique ID of the scan",
+            "schema": {
+              "example": "unique-scan-id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBodyfatDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyfatDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "assets"
+        ]
       }
     },
     "/users/{userToken}/terms": {
@@ -719,6 +761,43 @@
               "application/json;v=1": {
                 "schema": {
                   "$ref": "#/components/schemas/BodyShapePredictionDto"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "future-me"
+        ]
+      }
+    },
+    "/scans/{scanId}/body-shape-predictions": {
+      "get": {
+        "operationId": "BodyShapePredictionController_findByScanId",
+        "summary": "get all body shape predictions for a scan",
+        "description": "This operation returns all body shape predictions associated with a specific scan.",
+        "parameters": [
+          {
+            "name": "scanId",
+            "required": true,
+            "in": "path",
+            "description": "The unique ID of the scan",
+            "schema": {
+              "example": "unique-scan-id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json;v=1": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BodyShapePredictionDto"
+                  }
                 }
               }
             }
@@ -1518,10 +1597,6 @@
               }
             ]
           },
-          "scanQuality": {
-            "type": "string",
-            "nullable": true
-          },
           "measurements": {
             "nullable": true,
             "allOf": [
@@ -1551,7 +1626,6 @@
           "userToken",
           "createdAt",
           "updatedAt",
-          "scanQuality",
           "measurements",
           "bodyfat"
         ]
@@ -1621,6 +1695,29 @@
           "texture",
           "material",
           "stripes"
+        ]
+      },
+      "UpdateBodyfatDto": {
+        "type": "object",
+        "properties": {
+          "bodyfatMethod": {
+            "type": "string",
+            "enum": [
+              "adam",
+              "army",
+              "army_athlete",
+              "coco",
+              "coco_bri",
+              "coco_legacy",
+              "extended_navy_thinboost",
+              "tina_fit"
+            ],
+            "description": "A new bodyfat method to to use for the scan",
+            "example": "coco"
+          }
+        },
+        "required": [
+          "bodyfatMethod"
         ]
       },
       "CreateTermsDto": {
