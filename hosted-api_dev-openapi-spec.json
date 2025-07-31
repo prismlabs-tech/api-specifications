@@ -519,6 +519,19 @@
               "example": "unique-scan-id",
               "type": "string"
             }
+          },
+          {
+            "name": "unit-system",
+            "required": false,
+            "in": "query",
+            "description": "The unit system in which values will be returned",
+            "schema": {
+              "enum": [
+                "metric",
+                "imperial"
+              ],
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -549,6 +562,19 @@
             "description": "The unique ID of the scan",
             "schema": {
               "example": "unique-scan-id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "unit-system",
+            "required": false,
+            "in": "query",
+            "description": "The unit system in which values will be returned",
+            "schema": {
+              "enum": [
+                "metric",
+                "imperial"
+              ],
               "type": "string"
             }
           }
