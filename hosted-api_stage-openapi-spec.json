@@ -1907,6 +1907,9 @@
           },
           "metabolismReport": {
             "type": "object"
+          },
+          "metabolicAgeReport": {
+            "type": "object"
           }
         },
         "required": [
@@ -1918,7 +1921,8 @@
           "waistCircumferenceReport",
           "waistToHipRatioReport",
           "waistToHeightRatioReport",
-          "metabolismReport"
+          "metabolismReport",
+          "metabolicAgeReport"
         ]
       },
       "CreateBodyShapePredictionDto": {
