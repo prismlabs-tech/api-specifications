@@ -3,9 +3,8 @@
   "paths": {
     "/users": {
       "post": {
-        "operationId": "UsersController_upsert",
-        "summary": "register a new user",
         "description": "This operation registers a new user in hosted API. After a new user is registered, a scan for this user can be registered with /scans.",
+        "operationId": "UsersController_upsert",
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -29,6 +28,7 @@
             }
           }
         },
+        "summary": "register a new user",
         "tags": [
           "users"
         ]
@@ -36,9 +36,8 @@
     },
     "/users/{token}": {
       "get": {
-        "operationId": "UsersController_findOne",
-        "summary": "get meta data of a user",
         "description": "This operation provides the meta data for a specific user.",
+        "operationId": "UsersController_findOne",
         "parameters": [
           {
             "name": "token",
@@ -76,14 +75,14 @@
             }
           }
         },
+        "summary": "get meta data of a user",
         "tags": [
           "users"
         ]
       },
       "patch": {
-        "operationId": "UsersController_update",
-        "summary": "update meta data of a user",
         "description": "This operation updates the meta data for a specific user.",
+        "operationId": "UsersController_update",
         "parameters": [
           {
             "name": "token",
@@ -118,14 +117,14 @@
             }
           }
         },
+        "summary": "update meta data of a user",
         "tags": [
           "users"
         ]
       },
       "delete": {
-        "operationId": "UsersController_delete",
-        "summary": "delete  a user",
         "description": "This operation deletes a specific user.",
+        "operationId": "UsersController_delete",
         "parameters": [
           {
             "name": "token",
@@ -150,6 +149,7 @@
             }
           }
         },
+        "summary": "delete  a user",
         "tags": [
           "users"
         ]
@@ -157,9 +157,8 @@
     },
     "/scans": {
       "post": {
-        "operationId": "ScansController_create",
-        "summary": "register a new scan",
         "description": "This operation registers a new scan in hosted API.",
+        "operationId": "ScansController_create",
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -183,6 +182,7 @@
             }
           }
         },
+        "summary": "register a new scan",
         "tags": [
           "scans"
         ]
@@ -223,9 +223,8 @@
     },
     "/scans/{id}": {
       "get": {
-        "operationId": "ScansController_findOne",
-        "summary": "get status of a scan",
         "description": "This operation provides the status of a specific scan.",
+        "operationId": "ScansController_findOne",
         "parameters": [
           {
             "name": "id",
@@ -263,14 +262,14 @@
             }
           }
         },
+        "summary": "get status of a scan",
         "tags": [
           "scans"
         ]
       },
       "delete": {
-        "operationId": "ScansController_remove",
-        "summary": "delete a scan",
         "description": "This operation deletes a specific scan.",
+        "operationId": "ScansController_remove",
         "parameters": [
           {
             "name": "id",
@@ -295,6 +294,7 @@
             }
           }
         },
+        "summary": "delete a scan",
         "tags": [
           "scans"
         ]
@@ -302,9 +302,8 @@
     },
     "/scans/{scanId}/measurements": {
       "get": {
-        "operationId": "MeasurementController_findOne",
-        "summary": "get body measurements of a scan",
         "description": "This operation provides the body measurements of a specific scan.",
+        "operationId": "MeasurementController_findOne",
         "parameters": [
           {
             "name": "scanId",
@@ -342,6 +341,7 @@
             }
           }
         },
+        "summary": "get body measurements of a scan",
         "tags": [
           "assets"
         ]
@@ -349,9 +349,8 @@
     },
     "/scans/{scanId}/upload-url": {
       "post": {
-        "operationId": "ScanUploadUrlController_create",
-        "summary": "get the upload url",
         "description": "This operation provides an upload url for a specific scan for uploading capture data to Prism.",
+        "operationId": "ScanUploadUrlController_create",
         "parameters": [
           {
             "name": "scanId",
@@ -376,6 +375,7 @@
             }
           }
         },
+        "summary": "get the upload url",
         "tags": [
           "scans"
         ]
@@ -383,9 +383,8 @@
     },
     "/scans/{scanId}/scan-assets": {
       "get": {
-        "operationId": "ScanAssetsController_findOne",
-        "summary": "get asset status of a scan",
         "description": "This operation provides the asset status of a specific scan.",
+        "operationId": "ScanAssetsController_findOne",
         "parameters": [
           {
             "name": "scanId",
@@ -410,6 +409,7 @@
             }
           }
         },
+        "summary": "get asset status of a scan",
         "tags": [
           "assets"
         ]
@@ -417,9 +417,8 @@
     },
     "/body-shape-prediction/{bodyShapePredictionId}/asset-urls": {
       "get": {
-        "operationId": "BodyShapePredictionAssetUrlsController_findAll",
-        "summary": "get asset urls of a body shape prediction",
         "description": "This operation provides the asset urls of a specific body shape prediction.",
+        "operationId": "BodyShapePredictionAssetUrlsController_findAll",
         "parameters": [
           {
             "name": "bodyShapePredictionId",
@@ -444,6 +443,7 @@
             }
           }
         },
+        "summary": "get asset urls of a body shape prediction",
         "tags": [
           "future-me"
         ]
@@ -451,9 +451,8 @@
     },
     "/scans/{scanId}/asset-urls": {
       "get": {
-        "operationId": "ScanAssetUrlsController_findAll",
-        "summary": "get asset urls of a scan",
         "description": "This operation provides the asset urls of a specific scan.",
+        "operationId": "ScanAssetUrlsController_findAll",
         "parameters": [
           {
             "name": "scanId",
@@ -478,6 +477,7 @@
             }
           }
         },
+        "summary": "get asset urls of a scan",
         "tags": [
           "assets"
         ]
@@ -485,9 +485,8 @@
     },
     "/scans/{scanId}/asset-urls/{assetType}": {
       "get": {
-        "operationId": "ScanAssetUrlsController_findOne",
-        "summary": "get specific asset url of a scan",
         "description": "This operation provides a specific asset url of a specific scan.",
+        "operationId": "ScanAssetUrlsController_findOne",
         "parameters": [
           {
             "name": "scanId",
@@ -526,6 +525,7 @@
             }
           }
         },
+        "summary": "get specific asset url of a scan",
         "tags": [
           "assets"
         ]
@@ -533,9 +533,8 @@
     },
     "/scans/{scanId}/bodyfat": {
       "get": {
-        "operationId": "BodyfatController_findOne",
-        "summary": "get bodyfat of a scan",
         "description": "This operation provides the bodyfat of a specific scan.",
+        "operationId": "BodyfatController_findOne",
         "parameters": [
           {
             "name": "scanId",
@@ -573,14 +572,14 @@
             }
           }
         },
+        "summary": "get bodyfat of a scan",
         "tags": [
           "assets"
         ]
       },
       "patch": {
-        "operationId": "BodyfatController_update",
-        "summary": "update bodyfat method of a scan",
         "description": "This operation updates the bodyfat method of a scan.",
+        "operationId": "BodyfatController_update",
         "parameters": [
           {
             "name": "scanId",
@@ -628,6 +627,7 @@
             }
           }
         },
+        "summary": "update bodyfat method of a scan",
         "tags": [
           "assets"
         ]
@@ -706,9 +706,8 @@
     },
     "/scans/{scanId}/health-report": {
       "get": {
-        "operationId": "HealthReportController_findOne",
-        "summary": "get the health report of a scan",
         "description": "This operation provides the health report of a specific scan.",
+        "operationId": "HealthReportController_findOne",
         "parameters": [
           {
             "name": "scanId",
@@ -746,6 +745,7 @@
             }
           }
         },
+        "summary": "get the health report of a scan",
         "tags": [
           "health-report"
         ]
@@ -753,9 +753,8 @@
     },
     "/body-shape-prediction": {
       "post": {
-        "operationId": "BodyShapePredictionController_create",
-        "summary": "register a new body shape prediction",
         "description": "This operation registers a new body shape prediction for a specific scan.\n\n**NOTE:** Either a target weight or a target body fat percentage (but not both) must be specified",
+        "operationId": "BodyShapePredictionController_create",
         "parameters": [
           {
             "name": "unit-system",
@@ -793,6 +792,7 @@
             }
           }
         },
+        "summary": "register a new body shape prediction",
         "tags": [
           "future-me"
         ]
@@ -800,9 +800,8 @@
     },
     "/body-shape-prediction/{bodyShapePredictionId}": {
       "get": {
-        "operationId": "BodyShapePredictionController_findOne",
-        "summary": "get status of a body shape prediction",
         "description": "This operation provides the status of a specific body shape prediction.",
+        "operationId": "BodyShapePredictionController_findOne",
         "parameters": [
           {
             "name": "bodyShapePredictionId",
@@ -840,14 +839,14 @@
             }
           }
         },
+        "summary": "get status of a body shape prediction",
         "tags": [
           "future-me"
         ]
       },
       "delete": {
-        "operationId": "BodyShapePredictionController_remove",
-        "summary": "delete a body shape prediction",
         "description": "This operation deletes a specific body shape prediction.",
+        "operationId": "BodyShapePredictionController_remove",
         "parameters": [
           {
             "name": "bodyShapePredictionId",
@@ -872,6 +871,7 @@
             }
           }
         },
+        "summary": "delete a body shape prediction",
         "tags": [
           "future-me"
         ]
@@ -879,9 +879,8 @@
     },
     "/scans/{scanId}/body-shape-predictions": {
       "get": {
-        "operationId": "BodyShapePredictionController_findByScanId",
-        "summary": "get all body shape predictions for a scan",
         "description": "This operation returns all body shape predictions associated with a specific scan.",
+        "operationId": "BodyShapePredictionController_findByScanId",
         "parameters": [
           {
             "name": "scanId",
@@ -922,6 +921,7 @@
             }
           }
         },
+        "summary": "get all body shape predictions for a scan",
         "tags": [
           "future-me"
         ]
@@ -1011,6 +1011,7 @@
           "email": {
             "type": "string",
             "nullable": true,
+            "format": "email",
             "description": "The email address of the user",
             "example": "foo@bar.com"
           },
@@ -1211,6 +1212,7 @@
           "email": {
             "type": "string",
             "nullable": true,
+            "format": "email",
             "description": "The email address of the user",
             "example": "foo@bar.com"
           },
@@ -1305,6 +1307,7 @@
           },
           "assetConfigId": {
             "type": "string",
+            "format": "uuid",
             "description": "The asset configuration used for the scan",
             "example": ""
           },
@@ -1907,6 +1910,9 @@
           },
           "metabolismReport": {
             "type": "object"
+          },
+          "metabolicAgeReport": {
+            "type": "object"
           }
         },
         "required": [
@@ -1918,7 +1924,8 @@
           "waistCircumferenceReport",
           "waistToHipRatioReport",
           "waistToHeightRatioReport",
-          "metabolismReport"
+          "metabolismReport",
+          "metabolicAgeReport"
         ]
       },
       "CreateBodyShapePredictionDto": {
