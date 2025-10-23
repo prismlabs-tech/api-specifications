@@ -1621,6 +1621,30 @@
             "nullable": true,
             "description": "visceral adipose tissue (VAT) in kg",
             "example": 1.2
+          },
+          "appendicularLeanMassPercentage": {
+            "type": "number",
+            "nullable": true,
+            "description": "appendicular lean mass (ALM) in %",
+            "example": 20
+          },
+          "appendicularLeanMass": {
+            "type": "number",
+            "nullable": true,
+            "description": "appendicular lean mass (ALM) in kg",
+            "example": 16
+          },
+          "skeletalMuscleMassPercentage": {
+            "type": "number",
+            "nullable": true,
+            "description": "skeletal muscle mass (SMM) in %",
+            "example": 20
+          },
+          "skeletalMuscleMass": {
+            "type": "number",
+            "nullable": true,
+            "description": "skeletal muscle mass (SMM) in kg",
+            "example": 16
           }
         },
         "required": [
@@ -1630,7 +1654,11 @@
           "fatMass",
           "leanMass",
           "vatPercentage",
-          "vatMass"
+          "vatMass",
+          "appendicularLeanMassPercentage",
+          "appendicularLeanMass",
+          "skeletalMuscleMassPercentage",
+          "skeletalMuscleMass"
         ]
       },
       "ScanDto": {
