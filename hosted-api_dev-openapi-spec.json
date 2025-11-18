@@ -1941,6 +1941,12 @@
           },
           "metabolicAgeReport": {
             "type": "object"
+          },
+          "appendicularLeanMassReport": {
+            "type": "object"
+          },
+          "skeletalMuscleMassReport": {
+            "type": "object"
           }
         },
         "required": [
@@ -1953,7 +1959,9 @@
           "waistToHipRatioReport",
           "waistToHeightRatioReport",
           "metabolismReport",
-          "metabolicAgeReport"
+          "metabolicAgeReport",
+          "appendicularLeanMassReport",
+          "skeletalMuscleMassReport"
         ]
       },
       "CreateBodyShapePredictionDto": {
