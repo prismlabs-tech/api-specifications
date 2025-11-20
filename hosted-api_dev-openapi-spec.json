@@ -28,6 +28,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "register a new user",
         "tags": [
           "users"
@@ -75,6 +80,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get meta data of a user",
         "tags": [
           "users"
@@ -117,6 +127,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "update meta data of a user",
         "tags": [
           "users"
@@ -149,6 +164,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "delete  a user",
         "tags": [
           "users"
@@ -361,6 +381,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get body measurements of a scan",
         "tags": [
           "assets"
@@ -395,6 +420,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get the upload url",
         "tags": [
           "scans"
@@ -429,6 +459,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get asset status of a scan",
         "tags": [
           "assets"
@@ -497,6 +532,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get asset urls of a scan",
         "tags": [
           "assets"
@@ -545,6 +585,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get specific asset url of a scan",
         "tags": [
           "assets"
@@ -592,6 +637,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get bodyfat of a scan",
         "tags": [
           "assets"
@@ -647,6 +697,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "update bodyfat method of a scan",
         "tags": [
           "assets"
@@ -688,6 +743,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "terms"
         ]
@@ -719,6 +779,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "terms"
         ]
@@ -765,6 +830,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get the health report of a scan",
         "tags": [
           "health-report"
@@ -812,6 +882,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "register a new body shape prediction",
         "tags": [
           "future-me"
@@ -859,6 +934,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get status of a body shape prediction",
         "tags": [
           "future-me"
@@ -891,6 +971,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "delete a body shape prediction",
         "tags": [
           "future-me"
@@ -941,6 +1026,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get all body shape predictions for a scan",
         "tags": [
           "future-me"
