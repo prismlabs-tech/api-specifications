@@ -159,17 +159,7 @@
       "post": {
         "description": "This operation registers a new scan in hosted API.",
         "operationId": "ScansController_create",
-        "parameters": [
-          {
-            "name": "Accept",
-            "in": "header",
-            "description": "API version and content type",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
@@ -194,7 +184,7 @@
         },
         "security": [
           {
-            "API TOKEN": []
+            "bearer": []
           }
         ],
         "summary": "register a new scan",
@@ -217,15 +207,6 @@
               ],
               "type": "string"
             }
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "description": "API version and content type",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -242,7 +223,7 @@
         },
         "security": [
           {
-            "API TOKEN": []
+            "bearer": []
           }
         ],
         "tags": [
@@ -277,15 +258,6 @@
               ],
               "type": "string"
             }
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "description": "API version and content type",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -302,7 +274,7 @@
         },
         "security": [
           {
-            "API TOKEN": []
+            "bearer": []
           }
         ],
         "summary": "get status of a scan",
@@ -323,15 +295,6 @@
               "example": "unique-scan-id",
               "type": "string"
             }
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "description": "API version and content type",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -348,7 +311,7 @@
         },
         "security": [
           {
-            "API TOKEN": []
+            "bearer": []
           }
         ],
         "summary": "delete a scan",
@@ -999,6 +962,15 @@
     }
   ],
   "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http",
+        "name": "Authorization",
+        "in": "header"
+      }
+    },
     "schemas": {
       "Weight": {
         "type": "object",
