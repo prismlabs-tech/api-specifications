@@ -159,7 +159,17 @@
       "post": {
         "description": "This operation registers a new scan in hosted API.",
         "operationId": "ScansController_create",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "API version and content type",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -182,6 +192,11 @@
             }
           }
         },
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
         "summary": "register a new scan",
         "tags": [
           "scans"
@@ -202,6 +217,15 @@
               ],
               "type": "string"
             }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "API version and content type",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -216,6 +240,11 @@
             }
           }
         },
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
         "tags": [
           "scans"
         ]
@@ -248,6 +277,15 @@
               ],
               "type": "string"
             }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "API version and content type",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -262,6 +300,11 @@
             }
           }
         },
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
         "summary": "get status of a scan",
         "tags": [
           "scans"
@@ -280,6 +323,15 @@
               "example": "unique-scan-id",
               "type": "string"
             }
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "API version and content type",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -294,6 +346,11 @@
             }
           }
         },
+        "security": [
+          {
+            "API TOKEN": []
+          }
+        ],
         "summary": "delete a scan",
         "tags": [
           "scans"
