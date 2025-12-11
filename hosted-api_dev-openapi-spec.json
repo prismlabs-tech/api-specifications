@@ -1151,6 +1151,19 @@
               }
             ]
           },
+          "targetWeight": {
+            "nullable": true,
+            "description": "The user's target weight",
+            "example": {
+              "value": 80,
+              "unit": "kg"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Weight"
+              }
+            ]
+          },
           "height": {
             "description": "The user's height",
             "example": {
@@ -1285,6 +1298,19 @@
               }
             ]
           },
+          "targetWeight": {
+            "nullable": true,
+            "description": "The user's target weight",
+            "example": {
+              "value": 70,
+              "unit": "kg"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Weight"
+              }
+            ]
+          },
           "height": {
             "description": "The user's height",
             "example": {
@@ -1320,6 +1346,7 @@
           "region",
           "birthDate",
           "weight",
+          "targetWeight",
           "height",
           "token",
           "researchConsent"
@@ -1342,6 +1369,19 @@
           },
           "weight": {
             "description": "The user's weight",
+            "example": {
+              "value": 80,
+              "unit": "kg"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Weight"
+              }
+            ]
+          },
+          "targetWeight": {
+            "nullable": true,
+            "description": "The user's target weight",
             "example": {
               "value": 80,
               "unit": "kg"
