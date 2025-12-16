@@ -28,6 +28,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "register a new user",
         "tags": [
           "users"
@@ -75,6 +80,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get meta data of a user",
         "tags": [
           "users"
@@ -117,6 +127,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "update meta data of a user",
         "tags": [
           "users"
@@ -149,6 +164,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "delete  a user",
         "tags": [
           "users"
@@ -182,6 +202,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "register a new scan",
         "tags": [
           "scans"
@@ -216,6 +241,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "scans"
         ]
@@ -262,6 +292,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get status of a scan",
         "tags": [
           "scans"
@@ -294,6 +329,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "delete a scan",
         "tags": [
           "scans"
@@ -341,6 +381,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get body measurements of a scan",
         "tags": [
           "assets"
@@ -375,6 +420,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get the upload url",
         "tags": [
           "scans"
@@ -409,6 +459,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get asset status of a scan",
         "tags": [
           "assets"
@@ -477,6 +532,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get asset urls of a scan",
         "tags": [
           "assets"
@@ -525,6 +585,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get specific asset url of a scan",
         "tags": [
           "assets"
@@ -572,6 +637,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get bodyfat of a scan",
         "tags": [
           "assets"
@@ -627,6 +697,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "update bodyfat method of a scan",
         "tags": [
           "assets"
@@ -668,6 +743,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "terms"
         ]
@@ -699,6 +779,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "tags": [
           "terms"
         ]
@@ -745,6 +830,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get the health report of a scan",
         "tags": [
           "health-report"
@@ -792,6 +882,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "register a new body shape prediction",
         "tags": [
           "future-me"
@@ -839,6 +934,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get status of a body shape prediction",
         "tags": [
           "future-me"
@@ -871,6 +971,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "delete a body shape prediction",
         "tags": [
           "future-me"
@@ -921,6 +1026,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "get all body shape predictions for a scan",
         "tags": [
           "future-me"
@@ -942,6 +1052,15 @@
     }
   ],
   "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http",
+        "name": "Authorization",
+        "in": "header"
+      }
+    },
     "schemas": {
       "Weight": {
         "type": "object",
@@ -1022,6 +1141,19 @@
           },
           "weight": {
             "description": "The user's weight",
+            "example": {
+              "value": 80,
+              "unit": "kg"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Weight"
+              }
+            ]
+          },
+          "targetWeight": {
+            "nullable": true,
+            "description": "The user's target weight",
             "example": {
               "value": 80,
               "unit": "kg"
@@ -1166,6 +1298,19 @@
               }
             ]
           },
+          "targetWeight": {
+            "nullable": true,
+            "description": "The user's target weight",
+            "example": {
+              "value": 70,
+              "unit": "kg"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Weight"
+              }
+            ]
+          },
           "height": {
             "description": "The user's height",
             "example": {
@@ -1201,6 +1346,7 @@
           "region",
           "birthDate",
           "weight",
+          "targetWeight",
           "height",
           "token",
           "researchConsent"
@@ -1223,6 +1369,19 @@
           },
           "weight": {
             "description": "The user's weight",
+            "example": {
+              "value": 80,
+              "unit": "kg"
+            },
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Weight"
+              }
+            ]
+          },
+          "targetWeight": {
+            "nullable": true,
+            "description": "The user's target weight",
             "example": {
               "value": 80,
               "unit": "kg"
@@ -1621,6 +1780,30 @@
             "nullable": true,
             "description": "visceral adipose tissue (VAT) in kg",
             "example": 1.2
+          },
+          "appendicularLeanMassPercentage": {
+            "type": "number",
+            "nullable": true,
+            "description": "appendicular lean mass (ALM) in %",
+            "example": 20
+          },
+          "appendicularLeanMass": {
+            "type": "number",
+            "nullable": true,
+            "description": "appendicular lean mass (ALM) in kg",
+            "example": 16
+          },
+          "skeletalMuscleMassPercentage": {
+            "type": "number",
+            "nullable": true,
+            "description": "skeletal muscle mass (SMM) in %",
+            "example": 20
+          },
+          "skeletalMuscleMass": {
+            "type": "number",
+            "nullable": true,
+            "description": "skeletal muscle mass (SMM) in kg",
+            "example": 16
           }
         },
         "required": [
@@ -1630,7 +1813,11 @@
           "fatMass",
           "leanMass",
           "vatPercentage",
-          "vatMass"
+          "vatMass",
+          "appendicularLeanMassPercentage",
+          "appendicularLeanMass",
+          "skeletalMuscleMassPercentage",
+          "skeletalMuscleMass"
         ]
       },
       "ScanDto": {
@@ -1913,6 +2100,12 @@
           },
           "metabolicAgeReport": {
             "type": "object"
+          },
+          "appendicularLeanMassReport": {
+            "type": "object"
+          },
+          "skeletalMuscleMassReport": {
+            "type": "object"
           }
         },
         "required": [
@@ -1925,7 +2118,9 @@
           "waistToHipRatioReport",
           "waistToHeightRatioReport",
           "metabolismReport",
-          "metabolicAgeReport"
+          "metabolicAgeReport",
+          "appendicularLeanMassReport",
+          "skeletalMuscleMassReport"
         ]
       },
       "CreateBodyShapePredictionDto": {
