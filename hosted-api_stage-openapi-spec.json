@@ -1480,6 +1480,7 @@
               "coco_bri",
               "coco_legacy",
               "coco2",
+              "coco2_oc",
               "extended_navy_thinboost",
               "tina_fit"
             ],
@@ -1739,6 +1740,7 @@
               "coco_bri",
               "coco_legacy",
               "coco2",
+              "coco2_oc",
               "extended_navy_thinboost",
               "tina_fit"
             ],
@@ -2021,6 +2023,7 @@
               "coco_bri",
               "coco_legacy",
               "coco2",
+              "coco2_oc",
               "extended_navy_thinboost",
               "tina_fit"
             ],
