@@ -506,14 +506,14 @@
     },
     "/body-shape-prediction/{bodyShapePredictionId}/asset-urls": {
       "get": {
-        "description": "This operation provides the asset urls of a specific body shape prediction.",
+        "description": "\nThis operation provides the download **URLs** for all available **assets** of a specific **body shape prediction**.",
         "operationId": "BodyShapePredictionAssetUrlsController_findAll",
         "parameters": [
           {
             "name": "bodyShapePredictionId",
             "required": true,
             "in": "path",
-            "description": "The unique ID of the body shape prediction",
+            "description": "The unique ID of the body shape prediction.",
             "schema": {
               "example": "unique-body-shape-prediction-id",
               "type": "string"
@@ -532,7 +532,7 @@
             }
           }
         },
-        "summary": "get asset urls of a body shape prediction",
+        "summary": "Get asset URLs of a body shape prediction.",
         "tags": [
           "Future Me - Assets"
         ]
@@ -885,14 +885,14 @@
     },
     "/body-shape-prediction": {
       "post": {
-        "description": "This operation registers a new body shape prediction for a specific scan.\n\n**NOTE:** Either a target weight or a target body fat percentage (but not both) must be specified",
+        "description": "This operation registers a new **Future Me** body shape prediction for a specific scan.\n\nUse this endpoint to simulate how a user's body shape and composition could change for a given goal (for example, a lower target weight or body fat percentage).\n\n**Note:** Either a target weight **or** a target body fat percentage must be specified, but not both at the same time.",
         "operationId": "BodyShapePredictionController_create",
         "parameters": [
           {
             "name": "unit-system",
             "required": false,
             "in": "query",
-            "description": "The unit system in which values will be returned",
+            "description": "The unit system in which values will be returned.",
             "schema": {
               "enum": [
                 "metric",
@@ -929,7 +929,7 @@
             "bearer": []
           }
         ],
-        "summary": "register a new body shape prediction",
+        "summary": "Register a new body shape prediction",
         "tags": [
           "Future Me"
         ]
@@ -937,14 +937,14 @@
     },
     "/body-shape-prediction/{bodyShapePredictionId}": {
       "get": {
-        "description": "This operation provides the status of a specific body shape prediction.",
+        "description": "\nThis operation returns the current **status** and details of a specific **body shape prediction**.\n\nUse this endpoint to poll the processing status after creating a prediction or to retrieve its latest state for display in your application.",
         "operationId": "BodyShapePredictionController_findOne",
         "parameters": [
           {
             "name": "bodyShapePredictionId",
             "required": true,
             "in": "path",
-            "description": "The unique ID of the body shape prediction",
+            "description": "The unique ID of the body shape prediction.",
             "schema": {
               "example": "unique-body-shape-prediction-id",
               "type": "string"
@@ -954,7 +954,7 @@
             "name": "unit-system",
             "required": false,
             "in": "query",
-            "description": "The unit system in which values will be returned",
+            "description": "The unit system in which values will be returned.",
             "schema": {
               "enum": [
                 "metric",
@@ -981,20 +981,20 @@
             "bearer": []
           }
         ],
-        "summary": "get status of a body shape prediction",
+        "summary": "Get status of a body shape prediction",
         "tags": [
           "Future Me"
         ]
       },
       "delete": {
-        "description": "This operation deletes a specific body shape prediction.",
+        "description": "\nThis operation deletes a specific **body shape prediction**.\nAfter deletion, the body shape prediction and its associated data are no longer available for retrieval or reporting.",
         "operationId": "BodyShapePredictionController_remove",
         "parameters": [
           {
             "name": "bodyShapePredictionId",
             "required": true,
             "in": "path",
-            "description": "The unique ID of the body shape prediction",
+            "description": "The unique ID of the body shape prediction.",
             "schema": {
               "example": "unique-body-shape-prediction-id",
               "type": "string"
@@ -1018,7 +1018,7 @@
             "bearer": []
           }
         ],
-        "summary": "delete a body shape prediction",
+        "summary": "Delete a body shape prediction",
         "tags": [
           "Future Me"
         ]
@@ -1026,14 +1026,14 @@
     },
     "/scans/{scanId}/body-shape-predictions": {
       "get": {
-        "description": "This operation returns all body shape predictions associated with a specific scan.",
+        "description": "\nThis operation returns all **body shape predictions** associated with a specific **scan**.\n\nUse this endpoint to list every **Future Me** prediction that has been created for the scan, for example to show a history of different target scenarios (weight or body fat goals) in your application.",
         "operationId": "BodyShapePredictionController_findByScanId",
         "parameters": [
           {
             "name": "scanId",
             "required": true,
             "in": "path",
-            "description": "The unique ID of the scan",
+            "description": "The unique ID of the scan.",
             "schema": {
               "example": "unique-scan-id",
               "type": "string"
@@ -1043,7 +1043,7 @@
             "name": "unit-system",
             "required": false,
             "in": "query",
-            "description": "The unit system in which values will be returned",
+            "description": "The unit system in which values will be returned.",
             "schema": {
               "enum": [
                 "metric",
@@ -1073,7 +1073,7 @@
             "bearer": []
           }
         ],
-        "summary": "get all body shape predictions for a scan",
+        "summary": "Get all body shape predictions for a scan",
         "tags": [
           "Future Me"
         ]
@@ -1082,34 +1082,44 @@
   },
   "info": {
     "title": "Prism Hosted API",
-    "description": "\n### Prism Hosted API\n\nWelcome to the Prism Hosted API.\n\n[Prism Labs](https://www.prismlabs.tech/) provides mobile 3D body scanning and body composition tracking.[page:0]  \nUse this API to personalize your product with body insights such as body fat and lean mass percentage, body circumference measurements, metabolic age, and body roundness index.[page:0]  \nWith a simple 10-second spin in front of a mobile phone, you can personalize your users’ weight loss journeys or workout plans.[page:0]\n\nUse this API to:\n- Create and manage users\n- Create and manage body scans\n- Access 3D assets\n- Fetch body composition metrics and health reports\n- Create Future Me predictions\n- Access Future Me prediction assets\n\n---\n\n### Getting started\n\n{% stepper %}\n{% step %}\n### Set up an introduction call\nSet up an [introduction call](https://www.prismlabs.tech/contact) with us to exchange information, discuss use cases, and talk about pricing.[page:0]\n{% endstep %}\n\n{% step %}\n### Kick off paperwork\nSign the API evaluation agreement, MNDA, and DPA.\n{% endstep %}\n\n{% step %}\n### Integration kick-off call\nAlign on your ideal outcome, learn about Prism integration pathways (native or web), and refine your use case and integration architecture.\n{% endstep %}\n\n{% step %}\n### Begin integration\nWe will provide your sandbox API key.  \nDuring your integration we will assist you with any technical or product questions.\n{% endstep %}\n\n{% step %}\n### Integration checkpoints\nReview [consent screens](https://www.notion.so/2ce8ef4535c78002bbd9e90adcc2ddb0?pvs=25) to fulfill legal requirements.\n{% endstep %}\n\n{% step %}\n### Pre-launch check\nAfter all contracts are fully signed and consent screens are approved, we will provide your production API key and you can switch over to production.\n{% endstep %}\n{% endstepper %}\n\n---\n\n### Integration\n\n#### API URLs\n\n{% tabs %}\n{% tab title=\"Production\" %}\n**Production URL**  \nhttps://api.hosted.prismlabs.tech\n{% endtab %}\n{% tab title=\"Sandbox\" %}\n**Sandbox URL**  \nhttps://sandbox-api.prism.hosted.com\n{% endtab %}\n{% endtabs %}\n\n---\n\n#### API Headers\n\nFor all API calls the following headers are required:\n\n```http\ncontent-type: application/json\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\n```\nReplace {{API_KEY}} with your Prism API key for the selected environment.\n\n---\n\n#### API happy flow\n\n{% stepper %}\n{% step %}\n### Create a user\n`POST /users`\n{% endstep %}\n\n{% step %}\n### Initiate scan\n`POST /scans`\n{% endstep %}\n\n{% step %}\n### Get upload URL\n`POST /scans/{scanId}/upload-url`\n{% endstep %}\n\n{% step %}\n### Upload capture data\n`PUT {upload-url}`\n{% endstep %}\n\n{% step %}\n### Check scan status\n`GET /scans/{scanId}`\n{% endstep %}\n\n{% step %}\n### Fetch assets and body metrics for scan\n`GET /scans/{scanId}/asset-urls`  \n`GET /scans/{scanId}/measurements`  \n`GET /scans/{scanId}/bodyfat`  \n`GET /scans/{scanId}/health-report`\n{% endstep %}\n\n{% step %}\n### (Optional) Initiate Future Me (body shape prediction)\n`POST /body-shape-prediction`\n{% endstep %}\n\n{% step %}\n### (Optional) Check Future Me status\n`GET /body-shape-prediction/{bodyShapePredictionId}`\n{% endstep %}\n\n{% step %}\n### (Optional) Fetch assets and metrics for Future Me\n`GET /body-shape-prediction/{bodyShapePredictionId}/asset-urls`\n{% endstep %}\n{% endstepper %}\n\n",
+    "description": "",
     "version": "1",
     "contact": {}
   },
   "tags": [
     {
+      "name": "Prism Hosted API",
+      "description": "\n### Prism Hosted API\n\nWelcome to the Prism Hosted API.\n\n[Prism Labs](https://www.prismlabs.tech/) provides mobile 3D body scanning and body composition tracking.  \nUse this API to personalize your product with body insights such as body fat and lean mass percentage, body circumference measurements, metabolic age, and body roundness index.  \nWith a simple 10-second spin in front of a mobile phone, you can personalize your users’ weight loss journeys or workout plans.\n\nUse this API to:\n- Create and manage users\n- Create and manage body scans\n- Access 3D assets\n- Fetch body composition metrics and health reports\n- Create Future Me predictions\n- Access Future Me prediction assets\n\n---\n\n### Getting started\n\n{% stepper %}\n{% step %}\n### Set up an introduction call\nSet up an [introduction call](https://www.prismlabs.tech/contact) with us to exchange information, discuss use cases, and talk about pricing.\n{% endstep %}\n\n{% step %}\n### Kick off paperwork\nSign the API evaluation agreement, MNDA, and DPA.\n{% endstep %}\n\n{% step %}\n### Integration kick-off call\nAlign on your ideal outcome, learn about Prism integration pathways (native or web), and refine your use case and integration architecture.\n{% endstep %}\n\n{% step %}\n### Begin integration\nWe will provide your sandbox API key.  \nDuring your integration we will assist you with any technical or product questions.\n{% endstep %}\n\n{% step %}\n### Integration checkpoints\nReview [consent screens](https://www.notion.so/2ce8ef4535c78002bbd9e90adcc2ddb0?pvs=25) to fulfill legal requirements.\n{% endstep %}\n\n{% step %}\n### Pre-launch check\nAfter all contracts are fully signed and consent screens are approved, we will provide your production API key and you can switch over to production.\n{% endstep %}\n{% endstepper %}\n\n---\n\n### Integration\n\n#### API URLs\n\n{% tabs %}\n{% tab title=\"Production\" %}\n**Production URL**  \nhttps://api.hosted.prismlabs.tech\n{% endtab %}\n{% tab title=\"Sandbox\" %}\n**Sandbox URL**  \nhttps://sandbox-api.prism.hosted.com\n{% endtab %}\n{% endtabs %}\n\n---\n\n#### API Headers\n\nFor all API calls the following headers are required:\n\n```http\ncontent-type: application/json\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\n```\nReplace {{API_KEY}} with your Prism API key for the selected environment.\n\n---\n\n#### API happy flow\n\n{% stepper %}\n{% step %}\n### Create a user\n`POST /users`\n{% endstep %}\n\n{% step %}\n### Initiate scan\n`POST /scans`\n{% endstep %}\n\n{% step %}\n### Get upload URL\n`POST /scans/{scanId}/upload-url`\n{% endstep %}\n\n{% step %}\n### Upload capture data\n`PUT {upload-url}`\n{% endstep %}\n\n{% step %}\n### Check scan status\n`GET /scans/{scanId}`\n{% endstep %}\n\n{% step %}\n### Fetch assets and body metrics for scan\n`GET /scans/{scanId}/asset-urls`  \n`GET /scans/{scanId}/measurements`  \n`GET /scans/{scanId}/bodyfat`  \n`GET /scans/{scanId}/health-report`\n{% endstep %}\n\n{% step %}\n### (Optional) Initiate Future Me (body shape prediction)\n`POST /body-shape-prediction`\n{% endstep %}\n\n{% step %}\n### (Optional) Check Future Me status\n`GET /body-shape-prediction/{bodyShapePredictionId}`\n{% endstep %}\n\n{% step %}\n### (Optional) Fetch assets and metrics for Future Me\n`GET /body-shape-prediction/{bodyShapePredictionId}/asset-urls`\n{% endstep %}\n{% endstepper %}\n\n"
+    },
+    {
       "name": "Users",
-      "description": "### Create and manage users.\n\nA **User** represents an end-customer whose body scans, 3D assets, and body composition metrics you manage through the Prism Hosted API.\nEach user can have multiple scans over time, which are linked to this user record.\n\nAll Users endpoints require the following headers:\n```http\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\ncontent-type: application/json\n```\nReplace `{{API_KEY}}` with your Prism API key for the selected environment."
+      "description": "### Create and manage users.\n\nA **User** represents an end-customer whose body scans, 3D assets, and body composition metrics you manage through the Prism Hosted API.\nEach user can have multiple scans over time, which are linked to this user record.\n\nAll Users endpoints require the following headers:\n```http\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\ncontent-type: application/json\n```\nReplace `{{API_KEY}}` with your Prism API key for the selected environment.",
+      "parent": "Prism Hosted API"
     },
     {
       "name": "Scans",
-      "description": "### Create and manage body scans for users.\n\nEach scan generates body measurements, body composition metrics, various 3D and image assets, and can further generate **Future Me** predictions.\nScans are always linked to a specific user and can be created, queried, and deleted independently of other scans.\n\nCommon configurations:\n- Default Native Pipeline: assetConfigId == \"25f6d3a6-a634-40c3-8452-0342bee242d0\"\n- Default Web Pipeline: assetConfigId == \"ee651a9e-6de1-4621-a5c9-5d31ca874718\"\n- Legacy Native Pipeline: assetConfigId == \"c979ab6b-e46b-4c1c-89e1-bb02435b5cbf\"\n\nAll Scans endpoints require the following headers:\n```http\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\ncontent-type: application/json\n```\nReplace `{{API_KEY}}` with your Prism API key for the selected environment."
+      "description": "### Create and manage body scans for users.\n\nEach scan generates body measurements, body composition metrics, various 3D and image assets, and can further generate **Future Me** predictions.\nScans are always linked to a specific user and can be created, queried, and deleted independently of other scans.\n\nCommon configurations:\n- Default Native Pipeline: assetConfigId == \"25f6d3a6-a634-40c3-8452-0342bee242d0\"\n- Default Web Pipeline: assetConfigId == \"ee651a9e-6de1-4621-a5c9-5d31ca874718\"\n- Legacy Native Pipeline: assetConfigId == \"c979ab6b-e46b-4c1c-89e1-bb02435b5cbf\"\n\nAll Scans endpoints require the following headers:\n```http\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\ncontent-type: application/json\n```\nReplace `{{API_KEY}}` with your Prism API key for the selected environment.",
+      "parent": "Prism Hosted API"
     },
     {
       "name": "Scans - Assets",
-      "description": "### Access assets generated from user body scans.\n\nUse these endpoints to retrieve preview images, 3D body models and related visual assets generated for each scan.\nTypical use cases include powering scan galleries, 3D viewers and other visual experiences.\n\nAll Scans - Assets endpoints require the following headers:\n```http\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\ncontent-type: application/json\n```\nReplace `{{API_KEY}}` with your Prism API key for the selected environment."
+      "description": "### Access assets generated from user body scans.\n\nUse these endpoints to retrieve preview images, 3D body models and related visual assets generated for each scan.\nTypical use cases include powering scan galleries, 3D viewers and other visual experiences.\n\nAll Scans - Assets endpoints require the following headers:\n```http\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\ncontent-type: application/json\n```\nReplace `{{API_KEY}}` with your Prism API key for the selected environment.",
+      "parent": "Scans"
     },
     {
       "name": "Scans - Reports",
-      "description": "### Access body composition and health reports for user scans.\n\nUse these endpoints to fetch derived metrics such as body fat, lean mass, circumferences, metabolic outputs and consolidated health reports for each scan.\nTypical use cases include powering health dashboards, progress tracking, coaching experiences and downstream analytics.\n\nAll Scans - Reports endpoints require the following headers:\n```http\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\ncontent-type: application/json\n```\nReplace `{{API_KEY}}` with your Prism API key for the selected environment."
+      "description": "### Access body composition and health reports for user scans.\n\nUse these endpoints to fetch derived metrics such as body fat, lean mass, circumferences, metabolic outputs and consolidated health reports for each scan.\nTypical use cases include powering health dashboards, progress tracking, coaching experiences and downstream analytics.\n\nAll Scans - Reports endpoints require the following headers:\n```http\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\ncontent-type: application/json\n```\nReplace `{{API_KEY}}` with your Prism API key for the selected environment.",
+      "parent": "Scans"
     },
     {
       "name": "Future Me",
-      "description": "### Create body shape predictions based on user scans.\n\nUse these endpoints to generate **Future Me** predictions that simulate how a user’s body shape and composition could change under different target conditions (for example, a lower body weight or body fat percentage).\nPredictions are always linked to an existing scan and can be queried or deleted independently of other scans.\n\nAll Future Me endpoints require the following headers:\n```http\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\ncontent-type: application/json\n```\nReplace `{{API_KEY}}` with your Prism API key for the selected environment."
+      "description": "### Create Future Me predictions based on user scans.\n\nUse these endpoints to generate **Future Me** predictions that simulate how a user’s body shape and composition could change under different target conditions (for example, a lower body weight or body fat percentage).\nPredictions are always linked to an existing scan and can be queried or deleted independently of other scans.\n\nAll Future Me endpoints require the following headers:\n```http\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\ncontent-type: application/json\n```\nReplace `{{API_KEY}}` with your Prism API key for the selected environment.",
+      "parent": "Prism Hosted API"
     },
     {
       "name": "Future Me - Assets",
-      "description": "### Access visual assets generated for Future Me predictions.\n\nUse these endpoints to retrieve preview images, 3D models and other visual assets that represent the predicted **Future Me** body shape.\nTypical use cases include before/after visualizations, coaching flows and product experiences that show users their potential future physique.\n\nAll Future Me - Assets endpoints require the following headers:\n```http\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\ncontent-type: application/json\n```\nReplace `{{API_KEY}}` with your Prism API key for the selected environment."
+      "description": "### Access visual assets generated for Future Me predictions.\n\nUse these endpoints to retrieve preview images, 3D models and other visual assets that represent the predicted **Future Me** body shape.\nTypical use cases include before/after visualizations, coaching flows and product experiences that show users their potential future physique.\n\nAll Future Me - Assets endpoints require the following headers:\n```http\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\ncontent-type: application/json\n```\nReplace `{{API_KEY}}` with your Prism API key for the selected environment.",
+      "parent": "Future Me"
     }
   ],
   "servers": [
@@ -2201,7 +2211,7 @@
         "properties": {
           "scanId": {
             "type": "string",
-            "description": "The unique ID of the scan on which the prediction should be based on",
+            "description": "The unique ID of the scan within the Hosted API on which the body shape prediction is based.",
             "example": "unique-scan-id"
           },
           "predictionType": {
@@ -2209,19 +2219,19 @@
             "enum": [
               "weight_loss"
             ],
-            "description": "The prediction type that should be used for the prediction",
+            "description": "The prediction type that should be used for the prediction.",
             "example": "weight_loss"
           },
           "targetWeight": {
             "type": "number",
             "minimum": 1,
-            "description": "The target weight (in kg) for the prediction. This or 'targetBodyfat' should be specified",
+            "description": "The target weight in kg for the prediction. This or targetBodyfat should be specified, but not both.",
             "example": 50
           },
           "targetBodyfat": {
             "type": "number",
             "minimum": 1,
-            "description": "The target body fat percentage for the prediction. This or 'targetWeight' should be specified",
+            "description": "The target body fat percentage for the prediction. This or targetWeight should be specified, but not both.",
             "example": 20
           }
         },
@@ -2235,7 +2245,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The unique ID of the body shape prediction",
+            "description": "The unique ID of the body shape prediction.",
             "example": "unique-body-shape-prediction-id"
           },
           "status": {
@@ -2246,12 +2256,12 @@
               "FAILED"
             ],
             "type": "string",
-            "description": "The body shape prediction status",
+            "description": "The current body shape prediction status.",
             "example": "PROCESSING"
           },
           "scanId": {
             "type": "string",
-            "description": "The ID of the scan on which the prediction is based on",
+            "description": "The unique ID of the scan within the Hosted API on which the body shape prediction is based.",
             "example": "unique-scan-id"
           },
           "predictionType": {
@@ -2259,28 +2269,28 @@
             "enum": [
               "weight_loss"
             ],
-            "description": "The prediction type of the prediction",
+            "description": "The prediction type of the prediction.",
             "example": "weight_loss"
           },
           "targetWeight": {
             "type": "number",
             "nullable": true,
-            "description": "Target weight for the prediction",
+            "description": "Target body weight for the prediction.",
             "example": 50
           },
           "targetBodyfat": {
             "type": "number",
             "nullable": true,
-            "description": "Target body fat for the prediction",
+            "description": "Target body fat for the prediction.",
             "example": 20
           },
           "createdAt": {
             "type": "string",
-            "description": "The date and time the body shape prediction was created"
+            "description": "The date and time when the body shape prediction was created."
           },
           "updatedAt": {
             "type": "string",
-            "description": "The date and time the body shape prediction was last updated"
+            "description": "The date and time when the body shape prediction was last updated."
           }
         },
         "required": [
