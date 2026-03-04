@@ -645,8 +645,8 @@
     },
     "/scans/{scanId}/body": {
       "post": {
-        "description": "This operation tells Prism to take validated capture data and produce a body avatar asset that can then be downloaded.\n\n**IMPORTANT:** The generation of a fitted body asset will be *automatically initiated* upon successful completion.\n\n**NOTE:** Capture data must already be in a validated state, or this request will return an error.",
-        "operationId": "BodiesController_create",
+        "description": "This operation tells Prism to take validated capture data and produce a body avatar asset, including measurements, that can then be downloaded.\n**NOTE:** Capture data must already be in a validated state, or this request will return an error.",
+        "operationId": "BodiesController_createV2",
         "parameters": [
           {
             "name": "scanId",
@@ -661,6 +661,11 @@
           "201": {
             "description": "",
             "content": {
+              "application/json;v=2": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyDto"
+                }
+              },
               "application/json;v=1": {
                 "schema": {
                   "$ref": "#/components/schemas/BodyDto"
@@ -671,6 +676,11 @@
           "400": {
             "description": "A bad request was made",
             "content": {
+              "application/json;v=2": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              },
               "application/json;v=1": {
                 "schema": {
                   "$ref": "#/components/schemas/PrismApiExceptionResponse"
@@ -681,6 +691,11 @@
           "401": {
             "description": "Unauthorized access. Please include a valid access token.",
             "content": {
+              "application/json;v=2": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              },
               "application/json;v=1": {
                 "schema": {
                   "$ref": "#/components/schemas/PrismApiExceptionResponse"
@@ -691,6 +706,11 @@
           "403": {
             "description": "Forbidden access to resource. See documentation for more details.",
             "content": {
+              "application/json;v=2": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              },
               "application/json;v=1": {
                 "schema": {
                   "$ref": "#/components/schemas/PrismApiExceptionResponse"
@@ -701,6 +721,11 @@
           "422": {
             "description": "A validation error occurred",
             "content": {
+              "application/json;v=2": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              },
               "application/json;v=1": {
                 "schema": {
                   "$ref": "#/components/schemas/PrismApiExceptionResponse"
@@ -711,6 +736,11 @@
           "500": {
             "description": "An internal server error occurred",
             "content": {
+              "application/json;v=2": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrismApiExceptionResponse"
+                }
+              },
               "application/json;v=1": {
                 "schema": {
                   "$ref": "#/components/schemas/PrismApiExceptionResponse"
@@ -724,7 +754,7 @@
             "bearer": []
           }
         ],
-        "summary": "Initiate generation of a Body asset",
+        "summary": "Initiate generation of a Body asset, including measurements",
         "tags": [
           "body"
         ]
