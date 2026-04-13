@@ -4,7 +4,7 @@
     "/users": {
       "post": {
         "description": "\nThis operation creates a new **user** in the Hosted API. If a **user** with the same **token** already exists,\ntheir meta data is updated instead of creating a duplicate.\n\nAfter a user is registered, you can create scans for this user with the `/scans` endpoint by providing the \nsame **token**.\n\nThe **token** is the unique identifier of the user in your system.  \nIt must not contain an email address or any other personally identifiable information (PII).\n",
-        "operationId": "UsersController_upsert",
+        "operationId": "UsersController_upsert_1",
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -42,7 +42,7 @@
     "/users/{token}": {
       "get": {
         "description": "\nThis operation returns the meta data of a specific **user** identified by the partner-provided **token**.\n\nOptionally, you can use the `unit-system` query parameter to receive values in **metric** or **imperial** units.\n",
-        "operationId": "UsersController_findOne",
+        "operationId": "UsersController_findOne_1",
         "parameters": [
           {
             "name": "token",
@@ -92,7 +92,7 @@
       },
       "patch": {
         "description": "\nThis operation updates the meta data of a specific **user** identified by the partner-provided **token**.\n\nSend only the fields you want to change in the request body; all other fields remain unchanged.\nThe **token** itself cannot be changed by this operation.\n",
-        "operationId": "UsersController_update",
+        "operationId": "UsersController_update_1",
         "parameters": [
           {
             "name": "token",
@@ -139,7 +139,7 @@
       },
       "delete": {
         "description": "\nThis operation deletes a specific **user** identified by the partner-provided **token**.\n\nAfter deletion, the user can no longer be used for new scans or future me predictions.\n",
-        "operationId": "UsersController_delete",
+        "operationId": "UsersController_delete_1",
         "parameters": [
           {
             "name": "token",
@@ -178,7 +178,7 @@
     "/scans": {
       "post": {
         "description": "\nThis operation registers a new **scan** in the Hosted API for an existing **user**.\n\nTo associate the scan with the correct **user**, provide the same **token** in the request body that you used when registering the user via the `/users` endpoint.\n",
-        "operationId": "ScansController_create",
+        "operationId": "ScansController_create_1",
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -214,7 +214,7 @@
       },
       "get": {
         "description": "\nThis operation returns a paginated list of **scans** available for a specific **user** identified by the partner-provided **token**.\n\nUse the `limit`, `cursor`, and `order` query parameters to control pagination behavior.\n\nOptionally, you can use the `unit-system` query parameter to receive values in **metric** or **imperial** units.\n",
-        "operationId": "ScansController_findAll",
+        "operationId": "ScansController_findAll_1",
         "parameters": [
           {
             "name": "unit-system",
@@ -288,7 +288,7 @@
     "/scans/{id}": {
       "get": {
         "description": "\nThis operation provides the current **status** and details of a specific **scan**.\n\nUse this endpoint to poll the processing status after registering a scan or to retrieve its latest state for display in your application.\n",
-        "operationId": "ScansController_findOne",
+        "operationId": "ScansController_findOne_1",
         "parameters": [
           {
             "name": "id",
@@ -338,7 +338,7 @@
       },
       "delete": {
         "description": "\nThis operation deletes a specific **scan**.\n\nAfter deletion, the scan and its associated data are no longer available for retrieval or reporting.\n",
-        "operationId": "ScansController_remove",
+        "operationId": "ScansController_remove_1",
         "parameters": [
           {
             "name": "id",
@@ -377,7 +377,7 @@
     "/scans/{scanId}/measurements": {
       "get": {
         "description": "\nThis operation provides the detailed **body measurements** derived from a specific **scan**.\n\nOptionally, you can use the `unit-system` query parameter to receive measurements in **metric** or **imperial** units.\n",
-        "operationId": "MeasurementController_findOne",
+        "operationId": "MeasurementController_findOne_1",
         "parameters": [
           {
             "name": "scanId",
@@ -429,7 +429,7 @@
     "/scans/{scanId}/upload-url": {
       "post": {
         "description": "\nThis operation provides a pre-signed **upload URL** for a specific **scan**.\n\nUse the returned URL to upload the capture data for this scan directly with a **PUT** request to Prism.\n",
-        "operationId": "ScanUploadUrlController_create",
+        "operationId": "ScanUploadUrlController_create_1",
         "parameters": [
           {
             "name": "scanId",
@@ -468,7 +468,7 @@
     "/scans/{scanId}/scan-assets": {
       "get": {
         "description": "\nThis operation provides the **asset status** for a specific **scan**, including which assets are generated and available.\n\nUse this endpoint to check whether visual assets like models or preview images are ready.\n",
-        "operationId": "ScanAssetsController_findOne",
+        "operationId": "ScanAssetsController_findOne_1",
         "parameters": [
           {
             "name": "scanId",
@@ -507,7 +507,7 @@
     "/body-shape-prediction/{bodyShapePredictionId}/asset-urls": {
       "get": {
         "description": "\nThis operation provides the download **URLs** for all available **assets** of a specific **body shape prediction**.",
-        "operationId": "BodyShapePredictionAssetUrlsController_findAll",
+        "operationId": "BodyShapePredictionAssetUrlsController_findAll_1",
         "parameters": [
           {
             "name": "bodyShapePredictionId",
@@ -541,7 +541,7 @@
     "/scans/{scanId}/asset-urls": {
       "get": {
         "description": "\nThis operation provides the download **URLs** for all available **assets** of a specific **scan**.\n\nThe response includes URLs for assets such as preview images or 3D models.\n",
-        "operationId": "ScanAssetUrlsController_findAll",
+        "operationId": "ScanAssetUrlsController_findAll_1",
         "parameters": [
           {
             "name": "scanId",
@@ -580,7 +580,7 @@
     "/scans/{scanId}/asset-urls/{assetType}": {
       "get": {
         "description": "\nThis operation provides the download **URL** for a specific **asset type** of a given **scan**.\n\nUse this endpoint when you only need one asset, such as the preview image or 3D model, instead of requesting all asset URLs.\n",
-        "operationId": "ScanAssetUrlsController_findOne",
+        "operationId": "ScanAssetUrlsController_findOne_1",
         "parameters": [
           {
             "name": "scanId",
@@ -633,7 +633,7 @@
     "/scans/{scanId}/bodyfat": {
       "get": {
         "description": "\nThis operation provides the **body fat** result derived from a specific **scan**.\n\nOptionally, you can use the `unit-system` query parameter to receive values in **metric** or **imperial** units.\n",
-        "operationId": "BodyfatController_findOne",
+        "operationId": "BodyfatController_findOne_1",
         "parameters": [
           {
             "name": "scanId",
@@ -683,7 +683,7 @@
       },
       "patch": {
         "description": "\nThis operation updates the **body fat method** configuration of a specific **scan**.\n\nOptionally, you can use the `unit-system` query parameter to receive values in **metric** or **imperial** units.\n",
-        "operationId": "BodyfatController_update",
+        "operationId": "BodyfatController_update_1",
         "parameters": [
           {
             "name": "scanId",
@@ -745,7 +745,7 @@
     "/users/{token}/terms": {
       "post": {
         "description": "\nThis operation records a **terms of service** acceptance for a specific user.\n\nYou identify the user by the partner-provided **token** in the path parameter.\nProvide the **version** of the terms in the request body; the API stores the acceptance state and timestamp.\n",
-        "operationId": "TermsController_create",
+        "operationId": "TermsController_create_1",
         "parameters": [
           {
             "name": "token",
@@ -792,7 +792,7 @@
       },
       "get": {
         "description": "\nThis operation returns all recorded **terms of service** acceptances for a specific user.\n\nYou identify the user by the partner-provided **token** in the path parameter.\nUse this endpoint to audit which terms versions a user has accepted and when.\n",
-        "operationId": "TermsController_findAll",
+        "operationId": "TermsController_findAll_1",
         "parameters": [
           {
             "name": "token",
@@ -834,7 +834,7 @@
     "/scans/{scanId}/health-report": {
       "get": {
         "description": "\nThis operation provides a consolidated **health report** derived from a specific **scan**.\n\nThe health report includes metrics such as body composition indicators and other scan-based health insights \nthat you can use for downstream analysis or to power your product experience.\n\nPlease note that this endpoint returns the full set of health report data only when the user's sex is set to \n**Male** or **Female**. When the user's sex is set to **Neutral**, the endpoint still returns a response with \nthe same overall structure, but only a subset of sections is populated.\n\nFor the full list of Health Report data sources and how they are used, please contact your Prism representative.\n\n**Body fat percentage report**\n- bodyFatPercentage: The percentage of your body that is fat. One of the top predictors of long-term health, \nlifespan, metabolism and athletic performance. Improve your body fat percentage by losing fat, building \nmuscle or both.\n- healthLabel: A health standard label.\n- percentile: How your body fat percentage compares to a reference population (e.g. 50th percentile means you \nare right at average).\n\n**Lean mass report**\n- leanMass: The amount of fat-free tissue in your body (mostly muscle, plus organs, bones and water). Higher \nlean mass is associated with better strength, metabolism and long-term health.\n- healthLabel: A health standard label.\n- percentile: How your lean mass compares to a reference population.\n\n**Fat mass report**\n- fatMass: The total amount of fat in your body. Closely linked to body fat percentage and cardiometabolic risk.\n- healthLabel: A health standard label.\n- percentile: How your fat mass compares to a reference population.\n\n**Waist circumference report**\n- waistCircumference: The circumference around your waist. A key indicator of visceral fat and \ncardiometabolic risk, often more predictive than weight or BMI alone.\n- healthLabel: A health standard label.\n- percentile: How your waist circumference compares to a reference population.\n\n**Waist-to-hip ratio report**\n- waistToHipRatio: The ratio of your waist circumference to your hip circumference. Captures fat \ndistribution (apple vs pear shape) and is strongly associated with cardiovascular and metabolic risk.\n- healthLabel: A health standard label.\n- percentile: How your waist-to-hip ratio compares to a reference population.\n\n**Waist-to-height ratio report**\n- waistToHeightRatio: The ratio of your waist circumference to your height. A simple screening metric \nwhere higher values generally indicate higher health risk.\n- healthLabel: A health standard label.\n- percentile: How your waist-to-height ratio compares to a reference population.\n\n**Metabolism report**\n- basalMetabolicRate: The number of calories your body burns at rest in a typical day. Closely linked to \nlean mass and overall metabolic health.\n- energyExpenditures: Estimated daily calorie needs for different activity levels (e.g. sedentary), based \non your BMR and profile.\n- recommendations: Calorie targets and guidance for cutting (fat loss) or building (muscle gain) based on \nyour current body composition and goals.\n\n**Metabolic age report**\n- metabolicAgeYears: Your estimated metabolic age based on how many calories you burn and your body \ncomposition, compared to people of different ages.\n- chronologicalAgeYears: Your actual age in years.\n- ageDeltaYears: The difference between your metabolic age and chronological age (negative is \n“metabolically younger”, positive is “metabolically older”).\n- percentile: How your metabolic profile compares to a reference population for your age and sex.\n\n**Appendicular lean mass report**\n- appendicularLeanMass: The amount of lean mass in your arms and legs. Often used to assess muscle \nhealth, sarcopenia risk and functional strength.\n- appendicularLeanMassIndexKgPerM2: Appendicular lean mass adjusted for height, which helps compare \npeople of different sizes.\n- category: A categorical interpretation of your appendicular lean mass \n(for example “Low”, “Normal” or “High” muscle).\n- percentile: How your appendicular lean mass compares to a reference population.\n- references: Scientific references used to derive the cut-offs and norms for appendicular lean mass.\n- disclaimer: Important notes about clinical interpretation and limitations of this metric.\n\n**Skeletal muscle mass report**\n- skeletalMuscleMass: The amount of skeletal muscle in your body, which drives strength, mobility \nand energy expenditure.\n- skeletalMuscleMassIndexKgPerM2: Skeletal muscle mass adjusted for height, to allow comparison across \nbody sizes.\n- category: A categorical interpretation of your skeletal muscle mass \n(for example “Low”, “Normal” or “High” muscle).\n- percentile: How your skeletal muscle mass compares to a reference population.\n- references: Scientific references used to derive the cut-offs and norms for skeletal muscle mass.\n- disclaimer: Important notes about clinical interpretation and limitations of this metric.\n",
-        "operationId": "HealthReportController_findOne",
+        "operationId": "HealthReportController_findOne_1",
         "parameters": [
           {
             "name": "scanId",
@@ -886,7 +886,7 @@
     "/body-shape-prediction": {
       "post": {
         "description": "This operation registers a new **Future Me** body shape prediction for a specific scan.\n\nUse this endpoint to simulate how a user's body shape and composition could change for a given goal (for example, a lower target weight or body fat percentage).\n\n**Note:** Either a target weight **or** a target body fat percentage must be specified, but not both at the same time.",
-        "operationId": "BodyShapePredictionController_create",
+        "operationId": "BodyShapePredictionController_create_1",
         "parameters": [
           {
             "name": "unit-system",
@@ -938,7 +938,7 @@
     "/body-shape-prediction/{bodyShapePredictionId}": {
       "get": {
         "description": "\nThis operation returns the current **status** and details of a specific **body shape prediction**.\n\nUse this endpoint to poll the processing status after creating a prediction or to retrieve its latest state for display in your application.",
-        "operationId": "BodyShapePredictionController_findOne",
+        "operationId": "BodyShapePredictionController_findOne_1",
         "parameters": [
           {
             "name": "bodyShapePredictionId",
@@ -988,7 +988,7 @@
       },
       "delete": {
         "description": "\nThis operation deletes a specific **body shape prediction**.\nAfter deletion, the body shape prediction and its associated data are no longer available for retrieval or reporting.",
-        "operationId": "BodyShapePredictionController_remove",
+        "operationId": "BodyShapePredictionController_remove_1",
         "parameters": [
           {
             "name": "bodyShapePredictionId",
@@ -1027,7 +1027,7 @@
     "/scans/{scanId}/body-shape-predictions": {
       "get": {
         "description": "\nThis operation returns all **body shape predictions** associated with a specific **scan**.\n\nUse this endpoint to list every **Future Me** prediction that has been created for the scan, for example to show a history of different target scenarios (weight or body fat goals) in your application.",
-        "operationId": "BodyShapePredictionController_findByScanId",
+        "operationId": "BodyShapePredictionController_findByScanId_1",
         "parameters": [
           {
             "name": "scanId",
