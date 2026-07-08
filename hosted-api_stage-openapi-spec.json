@@ -3,7 +3,7 @@
   "paths": {
     "/users": {
       "post": {
-        "description": "\nThis operation creates a new **user** in the Hosted API. If a **user** with the same **token** already exists,\ntheir meta data is updated instead of creating a duplicate.\n\nAfter a user is registered, you can create scans for this user with the `/scans` endpoint by providing the \nsame **token**.\n\nThe **token** is the unique identifier of the user in your system.  \nIt must not contain an email address or any other personally identifiable information (PII).\n",
+        "description": "\nThis operation creates a new **user** in the Hosted API. If a **user** with the same **token** already exists,\ntheir meta data is updated instead of creating a duplicate.\n\nAfter a user is registered, you can create scans for this user with the `/scans` endpoint by providing the\nsame **token**.\n\nThe **token** is the unique identifier of the user in your system.\nIt must not contain an email address or any other personally identifiable information (PII).\n",
         "operationId": "UsersController_upsert_1",
         "parameters": [],
         "requestBody": {
@@ -837,7 +837,7 @@
     },
     "/scans/{scanId}/health-report": {
       "get": {
-        "description": "\nThis operation provides a consolidated **health report** derived from a specific **scan**.\n\nThe health report includes metrics such as body composition indicators and other scan-based health insights \nthat you can use for downstream analysis or to power your product experience.\n\nPlease note that this endpoint returns the full set of health report data only when the user's sex is set to \n**Male** or **Female**. When the user's sex is set to **Neutral**, the endpoint still returns a response with \nthe same overall structure, but only a subset of sections is populated.\n\nFor the full list of Health Report data sources and how they are used, please contact your Prism representative.\n\n**Body fat percentage report**\n- bodyFatPercentage: The percentage of your body that is fat. One of the top predictors of long-term health, \nlifespan, metabolism and athletic performance. Improve your body fat percentage by losing fat, building \nmuscle or both.\n- healthLabel: A health standard label.\n- percentile: How your body fat percentage compares to a reference population (e.g. 50th percentile means you \nare right at average).\n\n**Lean mass report**\n- leanMass: The amount of fat-free tissue in your body (mostly muscle, plus organs, bones and water). Higher \nlean mass is associated with better strength, metabolism and long-term health.\n- healthLabel: A health standard label.\n- percentile: How your lean mass compares to a reference population.\n\n**Fat mass report**\n- fatMass: The total amount of fat in your body. Closely linked to body fat percentage and cardiometabolic risk.\n- healthLabel: A health standard label.\n- percentile: How your fat mass compares to a reference population.\n\n**Waist circumference report**\n- waistCircumference: The circumference around your waist. A key indicator of visceral fat and \ncardiometabolic risk, often more predictive than weight or BMI alone.\n- healthLabel: A health standard label.\n- percentile: How your waist circumference compares to a reference population.\n\n**Waist-to-hip ratio report**\n- waistToHipRatio: The ratio of your waist circumference to your hip circumference. Captures fat \ndistribution (apple vs pear shape) and is strongly associated with cardiovascular and metabolic risk.\n- healthLabel: A health standard label.\n- percentile: How your waist-to-hip ratio compares to a reference population.\n\n**Waist-to-height ratio report**\n- waistToHeightRatio: The ratio of your waist circumference to your height. A simple screening metric \nwhere higher values generally indicate higher health risk.\n- healthLabel: A health standard label.\n- percentile: How your waist-to-height ratio compares to a reference population.\n\n**Metabolism report**\n- basalMetabolicRate: The number of calories your body burns at rest in a typical day. Closely linked to \nlean mass and overall metabolic health.\n- energyExpenditures: Estimated daily calorie needs for different activity levels (e.g. sedentary), based \non your BMR and profile.\n- recommendations: Calorie targets and guidance for cutting (fat loss) or building (muscle gain) based on \nyour current body composition and goals.\n\n**Metabolic age report**\n- metabolicAgeYears: Your estimated metabolic age based on how many calories you burn and your body \ncomposition, compared to people of different ages.\n- chronologicalAgeYears: Your actual age in years.\n- ageDeltaYears: The difference between your metabolic age and chronological age (negative is \n“metabolically younger”, positive is “metabolically older”).\n- percentile: How your metabolic profile compares to a reference population for your age and sex.\n\n**Appendicular lean mass report**\n- appendicularLeanMass: The amount of lean mass in your arms and legs. Often used to assess muscle \nhealth, sarcopenia risk and functional strength.\n- appendicularLeanMassIndexKgPerM2: Appendicular lean mass adjusted for height, which helps compare \npeople of different sizes.\n- category: A categorical interpretation of your appendicular lean mass \n(for example “Low”, “Normal” or “High” muscle).\n- percentile: How your appendicular lean mass compares to a reference population.\n- references: Scientific references used to derive the cut-offs and norms for appendicular lean mass.\n- disclaimer: Important notes about clinical interpretation and limitations of this metric.\n\n**Skeletal muscle mass report**\n- skeletalMuscleMass: The amount of skeletal muscle in your body, which drives strength, mobility \nand energy expenditure.\n- skeletalMuscleMassIndexKgPerM2: Skeletal muscle mass adjusted for height, to allow comparison across \nbody sizes.\n- category: A categorical interpretation of your skeletal muscle mass \n(for example “Low”, “Normal” or “High” muscle).\n- percentile: How your skeletal muscle mass compares to a reference population.\n- references: Scientific references used to derive the cut-offs and norms for skeletal muscle mass.\n- disclaimer: Important notes about clinical interpretation and limitations of this metric.\n",
+        "description": "\nThis operation provides a consolidated **health report** derived from a specific **scan**.\n\nThe health report includes metrics such as body composition indicators and other scan-based health insights\nthat you can use for downstream analysis or to power your product experience.\n\nPlease note that this endpoint returns the full set of health report data only when the user's sex is set to\n**Male** or **Female**. When the user's sex is set to **Neutral**, the endpoint still returns a response with\nthe same overall structure, but only a subset of sections is populated.\n\nFor the full list of Health Report data sources and how they are used, please contact your Prism representative.\n\n**Body fat percentage report**\n- bodyFatPercentage: The percentage of your body that is fat. One of the top predictors of long-term health,\nlifespan, metabolism and athletic performance. Improve your body fat percentage by losing fat, building\nmuscle or both.\n- healthLabel: A health standard label.\n- percentile: How your body fat percentage compares to a reference population (e.g. 50th percentile means you\nare right at average).\n\n**Lean mass report**\n- leanMass: The amount of fat-free tissue in your body (mostly muscle, plus organs, bones and water). Higher\nlean mass is associated with better strength, metabolism and long-term health.\n- healthLabel: A health standard label.\n- percentile: How your lean mass compares to a reference population.\n\n**Fat mass report**\n- fatMass: The total amount of fat in your body. Closely linked to body fat percentage and cardiometabolic risk.\n- healthLabel: A health standard label.\n- percentile: How your fat mass compares to a reference population.\n\n**Waist circumference report**\n- waistCircumference: The circumference around your waist. A key indicator of visceral fat and\ncardiometabolic risk, often more predictive than weight or BMI alone.\n- healthLabel: A health standard label.\n- percentile: How your waist circumference compares to a reference population.\n\n**Waist-to-hip ratio report**\n- waistToHipRatio: The ratio of your waist circumference to your hip circumference. Captures fat\ndistribution (apple vs pear shape) and is strongly associated with cardiovascular and metabolic risk.\n- healthLabel: A health standard label.\n- percentile: How your waist-to-hip ratio compares to a reference population.\n\n**Waist-to-height ratio report**\n- waistToHeightRatio: The ratio of your waist circumference to your height. A simple screening metric\nwhere higher values generally indicate higher health risk.\n- healthLabel: A health standard label.\n- percentile: How your waist-to-height ratio compares to a reference population.\n\n**Metabolism report**\n- basalMetabolicRate: The number of calories your body burns at rest in a typical day. Closely linked to\nlean mass and overall metabolic health.\n- energyExpenditures: Estimated daily calorie needs for different activity levels (e.g. sedentary), based\non your BMR and profile.\n- recommendations: Calorie targets and guidance for cutting (fat loss) or building (muscle gain) based on\nyour current body composition and goals.\n\n**Metabolic age report**\n- metabolicAgeYears: Your estimated metabolic age based on how many calories you burn and your body\ncomposition, compared to people of different ages.\n- chronologicalAgeYears: Your actual age in years.\n- ageDeltaYears: The difference between your metabolic age and chronological age (negative is\n“metabolically younger”, positive is “metabolically older”).\n- percentile: How your metabolic profile compares to a reference population for your age and sex.\n\n**Appendicular lean mass report**\n- appendicularLeanMass: The amount of lean mass in your arms and legs. Often used to assess muscle\nhealth, sarcopenia risk and functional strength.\n- appendicularLeanMassIndexKgPerM2: Appendicular lean mass adjusted for height, which helps compare\npeople of different sizes.\n- category: A categorical interpretation of your appendicular lean mass\n(for example “Low”, “Normal” or “High” muscle).\n- percentile: How your appendicular lean mass compares to a reference population.\n- references: Scientific references used to derive the cut-offs and norms for appendicular lean mass.\n- disclaimer: Important notes about clinical interpretation and limitations of this metric.\n\n**Skeletal muscle mass report**\n- skeletalMuscleMass: The amount of skeletal muscle in your body, which drives strength, mobility\nand energy expenditure.\n- skeletalMuscleMassIndexKgPerM2: Skeletal muscle mass adjusted for height, to allow comparison across\nbody sizes.\n- category: A categorical interpretation of your skeletal muscle mass\n(for example “Low”, “Normal” or “High” muscle).\n- percentile: How your skeletal muscle mass compares to a reference population.\n- references: Scientific references used to derive the cut-offs and norms for skeletal muscle mass.\n- disclaimer: Important notes about clinical interpretation and limitations of this metric.\n",
         "operationId": "HealthReportController_findOne_1",
         "parameters": [
           {
@@ -1093,7 +1093,7 @@
   "tags": [
     {
       "name": "Prism Hosted API",
-      "description": "\n### Prism Hosted API\n\nWelcome to the Prism Hosted API.\n\n[Prism Labs](https://www.prismlabs.tech/) provides mobile 3D body scanning and body composition tracking.  \nUse this API to personalize your product with body insights such as body fat and lean mass percentage, body circumference measurements, metabolic age, and body roundness index.  \nWith a simple 10-second spin in front of a mobile phone, you can personalize your users’ weight loss journeys or workout plans.\n\nUse this API to:\n- Create and manage users\n- Create and manage body scans\n- Access 3D assets\n- Fetch body composition metrics and health reports\n- Create Future Me predictions\n- Access Future Me prediction assets\n\n---\n\n### Getting started\n\n{% stepper %}\n{% step %}\n### Set up an introduction call\nSet up an [introduction call](https://www.prismlabs.tech/contact) with us to exchange information, discuss use cases, and talk about pricing.\n{% endstep %}\n\n{% step %}\n### Kick off paperwork\nSign the API evaluation agreement, MNDA, and DPA.\n{% endstep %}\n\n{% step %}\n### Integration kick-off call\nAlign on your ideal outcome, learn about Prism integration pathways (native or web), and refine your use case and integration architecture.\n{% endstep %}\n\n{% step %}\n### Begin integration\nWe will provide your sandbox API key.  \nDuring your integration we will assist you with any technical or product questions.\n{% endstep %}\n\n{% step %}\n### Integration checkpoints\nReview [consent screens](https://www.notion.so/2ce8ef4535c78002bbd9e90adcc2ddb0?pvs=25) to fulfill legal requirements.\n{% endstep %}\n\n{% step %}\n### Pre-launch check\nAfter all contracts are fully signed and consent screens are approved, we will provide your production API key and you can switch over to production.\n{% endstep %}\n{% endstepper %}\n\n---\n\n### Integration\n\n#### API URLs\n\n{% tabs %}\n{% tab title=\"Production\" %}\n**Production URL**  \nhttps://api.hosted.prismlabs.tech\n{% endtab %}\n{% tab title=\"Sandbox\" %}\n**Sandbox URL**  \nhttps://sandbox-api.hosted.prismlabs.tech\n{% endtab %}\n{% endtabs %}\n\n---\n\n#### API Headers\n\nFor all API calls the following headers are required:\n\n```http\ncontent-type: application/json\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\n```\nReplace {{API_KEY}} with your Prism API key for the selected environment.\n\n---\n\n#### API happy flow\n\n{% stepper %}\n{% step %}\n### Create a user\n`POST /users`\n{% endstep %}\n\n{% step %}\n### Initiate scan\n`POST /scans`\n{% endstep %}\n\n{% step %}\n### Get upload URL\n`POST /scans/{scanId}/upload-url`\n{% endstep %}\n\n{% step %}\n### Upload capture data\n`PUT {upload-url}`\n{% endstep %}\n\n{% step %}\n### Check scan status\n`GET /scans/{scanId}`\n{% endstep %}\n\n{% step %}\n### Fetch assets and body metrics for scan\n`GET /scans/{scanId}/asset-urls`  \n`GET /scans/{scanId}/measurements`  \n`GET /scans/{scanId}/bodyfat`  \n`GET /scans/{scanId}/health-report`\n{% endstep %}\n\n{% step %}\n### (Optional) Initiate Future Me (body shape prediction)\n`POST /body-shape-prediction`\n{% endstep %}\n\n{% step %}\n### (Optional) Check Future Me status\n`GET /body-shape-prediction/{bodyShapePredictionId}`\n{% endstep %}\n\n{% step %}\n### (Optional) Fetch assets and metrics for Future Me\n`GET /body-shape-prediction/{bodyShapePredictionId}/asset-urls`\n{% endstep %}\n{% endstepper %}\n\n"
+      "description": "\n### Prism Hosted API\n\nWelcome to the Prism Hosted API.\n\n[Prism Labs](https://www.prismlabs.tech/) provides mobile 3D body scanning and body composition tracking.\nUse this API to personalize your product with body insights such as body fat and lean mass percentage, body circumference measurements, metabolic age, and body roundness index.\nWith a simple 10-second spin in front of a mobile phone, you can personalize your users’ weight loss journeys or workout plans.\n\nUse this API to:\n- Create and manage users\n- Create and manage body scans\n- Access 3D assets\n- Fetch body composition metrics and health reports\n- Create Future Me predictions\n- Access Future Me prediction assets\n\n---\n\n### Getting started\n\n{% stepper %}\n{% step %}\n### Set up an introduction call\nSet up an [introduction call](https://www.prismlabs.tech/contact) with us to exchange information, discuss use cases, and talk about pricing.\n{% endstep %}\n\n{% step %}\n### Kick off paperwork\nSign the API evaluation agreement, MNDA, and DPA.\n{% endstep %}\n\n{% step %}\n### Integration kick-off call\nAlign on your ideal outcome, learn about Prism integration pathways (native or web), and refine your use case and integration architecture.\n{% endstep %}\n\n{% step %}\n### Begin integration\nWe will provide your sandbox API key.\nDuring your integration we will assist you with any technical or product questions.\n{% endstep %}\n\n{% step %}\n### Integration checkpoints\nReview [consent screens](https://www.notion.so/2ce8ef4535c78002bbd9e90adcc2ddb0?pvs=25) to fulfill legal requirements.\n{% endstep %}\n\n{% step %}\n### Pre-launch check\nAfter all contracts are fully signed and consent screens are approved, we will provide your production API key and you can switch over to production.\n{% endstep %}\n{% endstepper %}\n\n---\n\n### Integration\n\n#### API URLs\n\n{% tabs %}\n{% tab title=\"Production\" %}\n**Production URL**\nhttps://api.hosted.prismlabs.tech\n{% endtab %}\n{% tab title=\"Sandbox\" %}\n**Sandbox URL**\nhttps://sandbox-api.hosted.prismlabs.tech\n{% endtab %}\n{% endtabs %}\n\n---\n\n#### API Headers\n\nFor all API calls the following headers are required:\n\n```http\ncontent-type: application/json\naccept: application/json;v=1\nauthorization: Bearer {{API_KEY}}\n```\nReplace {{API_KEY}} with your Prism API key for the selected environment.\n\n---\n\n#### API happy flow\n\n{% stepper %}\n{% step %}\n### Create a user\n`POST /users`\n{% endstep %}\n\n{% step %}\n### Initiate scan\n`POST /scans`\n{% endstep %}\n\n{% step %}\n### Get upload URL\n`POST /scans/{scanId}/upload-url`\n{% endstep %}\n\n{% step %}\n### Upload capture data\n`PUT {upload-url}`\n{% endstep %}\n\n{% step %}\n### Check scan status\n`GET /scans/{scanId}`\n{% endstep %}\n\n{% step %}\n### Fetch assets and body metrics for scan\n`GET /scans/{scanId}/asset-urls`\n`GET /scans/{scanId}/measurements`\n`GET /scans/{scanId}/bodyfat`\n`GET /scans/{scanId}/health-report`\n{% endstep %}\n\n{% step %}\n### (Optional) Initiate Future Me (body shape prediction)\n`POST /body-shape-prediction`\n{% endstep %}\n\n{% step %}\n### (Optional) Check Future Me status\n`GET /body-shape-prediction/{bodyShapePredictionId}`\n{% endstep %}\n\n{% step %}\n### (Optional) Fetch assets and metrics for Future Me\n`GET /body-shape-prediction/{bodyShapePredictionId}/asset-urls`\n{% endstep %}\n{% endstepper %}\n\n"
     },
     {
       "name": "Users",
@@ -1263,18 +1263,17 @@
             ]
           },
           "sex": {
-            "type": "string",
             "enum": [
               "male",
               "female",
               "neutral",
               "undefined"
             ],
+            "type": "string",
             "description": "The user's sex.",
             "example": "male"
           },
           "region": {
-            "type": "string",
             "enum": [
               "africa",
               "asia",
@@ -1285,6 +1284,7 @@
               "oceania",
               "south_america"
             ],
+            "type": "string",
             "description": "The user's geographical region.",
             "example": "north_america"
           },
@@ -1336,18 +1336,17 @@
             "example": "unique-user-id"
           },
           "sex": {
-            "type": "string",
             "enum": [
               "male",
               "female",
               "neutral",
               "undefined"
             ],
+            "type": "string",
             "description": "The user's sex..",
             "example": "male"
           },
           "region": {
-            "type": "string",
             "enum": [
               "africa",
               "asia",
@@ -1358,6 +1357,7 @@
               "oceania",
               "south_america"
             ],
+            "type": "string",
             "description": "The user's geographical region.",
             "example": "north_america"
           },
@@ -1492,18 +1492,17 @@
             ]
           },
           "sex": {
-            "type": "string",
             "enum": [
               "male",
               "female",
               "neutral",
               "undefined"
             ],
+            "type": "string",
             "description": "The user's sex.",
             "example": "male"
           },
           "region": {
-            "type": "string",
             "enum": [
               "africa",
               "asia",
@@ -1514,6 +1513,7 @@
               "oceania",
               "south_america"
             ],
+            "type": "string",
             "description": "The user's geographical region.",
             "example": "north_america"
           },
@@ -1558,7 +1558,6 @@
             "example": "25f6d3a6-a634-40c3-8452-0342bee242d0"
           },
           "bodyfatMethod": {
-            "type": "string",
             "enum": [
               "adam",
               "army",
@@ -1571,6 +1570,7 @@
               "extended_navy_thinboost",
               "tina_fit"
             ],
+            "type": "string",
             "description": "The body fat method applied to this scan.",
             "example": "coco"
           }
@@ -1594,13 +1594,13 @@
             "example": "unique-scan-id"
           },
           "captureData": {
-            "type": "string",
             "nullable": true,
             "enum": [
               "started",
               "succeeded",
               "failed"
             ],
+            "type": "string",
             "description": "The status of the capture data associated with the scan",
             "example": "succeeded"
           },
@@ -1610,13 +1610,13 @@
             "description": "The date and time the capture data was last updated"
           },
           "body": {
-            "type": "string",
             "nullable": true,
             "enum": [
               "started",
               "succeeded",
               "failed"
             ],
+            "type": "string",
             "description": "The status of the body associated with the scan",
             "example": "started"
           },
@@ -1626,13 +1626,13 @@
             "description": "The date and time the body was last updated"
           },
           "fittedBody": {
-            "type": "string",
             "nullable": true,
             "enum": [
               "started",
               "succeeded",
               "failed"
             ],
+            "type": "string",
             "description": "The status of the fitted body associated with the scan",
             "example": null
           },
@@ -1642,13 +1642,13 @@
             "description": "The date and time the fitted body was last updated"
           },
           "measurement": {
-            "type": "string",
             "nullable": true,
             "enum": [
               "started",
               "succeeded",
               "failed"
             ],
+            "type": "string",
             "description": "The status of the measurement associated with the scan",
             "example": null
           },
@@ -1818,7 +1818,6 @@
         "type": "object",
         "properties": {
           "bodyfatMethod": {
-            "type": "string",
             "enum": [
               "adam",
               "army",
@@ -1831,6 +1830,7 @@
               "extended_navy_thinboost",
               "tina_fit"
             ],
+            "type": "string",
             "description": "Bodyfat method for the scan",
             "example": "coco"
           },
@@ -2108,7 +2108,6 @@
         "type": "object",
         "properties": {
           "bodyfatMethod": {
-            "type": "string",
             "enum": [
               "adam",
               "army",
@@ -2121,6 +2120,7 @@
               "extended_navy_thinboost",
               "tina_fit"
             ],
+            "type": "string",
             "description": "A new bodyfat method to to use for the scan",
             "example": "coco"
           }
