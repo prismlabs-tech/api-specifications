@@ -285,13 +285,13 @@
         ]
       }
     },
-    "/scans/{id}": {
+    "/scans/{scanId}": {
       "get": {
         "description": "\nThis operation provides the current **status** and details of a specific **scan**.\n\nUse this endpoint to poll the processing status after registering a scan or to retrieve its latest state for display in your application.\n",
         "operationId": "ScansController_findOne_1",
         "parameters": [
           {
-            "name": "id",
+            "name": "scanId",
             "required": true,
             "in": "path",
             "description": "The unique ID of the scan.",
@@ -341,7 +341,7 @@
         "operationId": "ScansController_remove_1",
         "parameters": [
           {
-            "name": "id",
+            "name": "scanId",
             "required": true,
             "in": "path",
             "description": "The unique ID of the scan.",
