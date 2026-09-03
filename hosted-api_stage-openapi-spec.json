@@ -213,7 +213,7 @@
         ]
       },
       "get": {
-        "description": "\nThis operation returns a paginated list of **scans** available for a specific **user** identified by the partner-provided **token**.\n\nUse the `limit`, `cursor`, and `order` query parameters to control pagination behavior.\n\nOptionally, you can use the `unit-system` query parameter to receive values in **metric** or **imperial** units.\n",
+        "description": "\nThis operation returns a paginated list of **scans** available for a specific **user** identified by the partner-provided **token**.\n\nThe `limit` query parameter is **required** and must be between 1 and 50 (inclusive). Use the optional `cursor` and `order` query parameters to page through the results.\n\nOptionally, you can use the `unit-system` query parameter to receive values in **metric** or **imperial** units.\n",
         "operationId": "ScansController_findAll_1",
         "parameters": [
           {
@@ -253,10 +253,12 @@
           },
           {
             "name": "limit",
-            "required": false,
+            "required": true,
             "in": "query",
-            "description": "Maximum number of scans to return in a single page.",
+            "description": "Maximum number of scans to return in a single page. Must be between 1 and 50 (inclusive).",
             "schema": {
+              "minimum": 1,
+              "maximum": 50,
               "example": 20,
               "type": "number"
             }
@@ -285,13 +287,13 @@
         ]
       }
     },
-    "/scans/{id}": {
+    "/scans/{scanId}": {
       "get": {
         "description": "\nThis operation provides the current **status** and details of a specific **scan**.\n\nUse this endpoint to poll the processing status after registering a scan or to retrieve its latest state for display in your application.\n",
         "operationId": "ScansController_findOne_1",
         "parameters": [
           {
-            "name": "id",
+            "name": "scanId",
             "required": true,
             "in": "path",
             "description": "The unique ID of the scan.",
@@ -341,7 +343,7 @@
         "operationId": "ScansController_remove_1",
         "parameters": [
           {
-            "name": "id",
+            "name": "scanId",
             "required": true,
             "in": "path",
             "description": "The unique ID of the scan.",
@@ -1052,6 +1054,19 @@
               "enum": [
                 "metric",
                 "imperial"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "order",
+            "required": false,
+            "in": "query",
+            "description": "Sorting order applied to the returned predictions (for example, ascending or descending by creation time).",
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
               ],
               "type": "string"
             }
