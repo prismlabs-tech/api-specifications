@@ -270,7 +270,7 @@
             "content": {
               "application/json;v=1": {
                 "schema": {
-                  "type": "object"
+                  "$ref": "#/components/schemas/PaginatedScansDto"
                 }
               }
             }
@@ -1172,11 +1172,11 @@
             "example": 80
           },
           "unit": {
+            "type": "string",
             "enum": [
               "kg",
               "lb"
             ],
-            "type": "string",
             "description": "The unit of the weight value",
             "example": "kg"
           }
@@ -1196,11 +1196,11 @@
             "example": 80
           },
           "unit": {
+            "type": "string",
             "enum": [
               "m",
               "in"
             ],
-            "type": "string",
             "description": "The unit of the height value",
             "example": "m"
           }
@@ -1214,10 +1214,14 @@
         "type": "object",
         "properties": {
           "accepted": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the user accepted the terms of service.",
+            "example": true
           },
           "version": {
-            "type": "string"
+            "type": "string",
+            "description": "The version of the terms of service the user accepted.",
+            "example": "1"
           }
         },
         "required": [
@@ -1278,17 +1282,18 @@
             ]
           },
           "sex": {
+            "type": "string",
             "enum": [
               "male",
               "female",
               "neutral",
               "undefined"
             ],
-            "type": "string",
             "description": "The user's sex.",
             "example": "male"
           },
           "region": {
+            "type": "string",
             "enum": [
               "africa",
               "asia",
@@ -1299,7 +1304,6 @@
               "oceania",
               "south_america"
             ],
-            "type": "string",
             "description": "The user's geographical region.",
             "example": "north_america"
           },
@@ -1351,17 +1355,18 @@
             "example": "unique-user-id"
           },
           "sex": {
+            "type": "string",
             "enum": [
               "male",
               "female",
               "neutral",
               "undefined"
             ],
-            "type": "string",
             "description": "The user's sex..",
             "example": "male"
           },
           "region": {
+            "type": "string",
             "enum": [
               "africa",
               "asia",
@@ -1372,7 +1377,6 @@
               "oceania",
               "south_america"
             ],
-            "type": "string",
             "description": "The user's geographical region.",
             "example": "north_america"
           },
@@ -1507,17 +1511,18 @@
             ]
           },
           "sex": {
+            "type": "string",
             "enum": [
               "male",
               "female",
               "neutral",
               "undefined"
             ],
-            "type": "string",
             "description": "The user's sex.",
             "example": "male"
           },
           "region": {
+            "type": "string",
             "enum": [
               "africa",
               "asia",
@@ -1528,7 +1533,6 @@
               "oceania",
               "south_america"
             ],
-            "type": "string",
             "description": "The user's geographical region.",
             "example": "north_america"
           },
@@ -1558,11 +1562,11 @@
             "example": "unique-user-token"
           },
           "deviceConfigName": {
+            "type": "string",
             "enum": [
               "IPHONE_SCANNER",
               "ANDROID_SCANNER"
             ],
-            "type": "string",
             "description": "The device configuration used to capture this scan.",
             "example": "IPHONE_SCANNER"
           },
@@ -1573,6 +1577,7 @@
             "example": "25f6d3a6-a634-40c3-8452-0342bee242d0"
           },
           "bodyfatMethod": {
+            "type": "string",
             "enum": [
               "adam",
               "army",
@@ -1585,7 +1590,6 @@
               "extended_navy_thinboost",
               "tina_fit"
             ],
-            "type": "string",
             "description": "The body fat method applied to this scan.",
             "example": "coco"
           }
@@ -1609,13 +1613,13 @@
             "example": "unique-scan-id"
           },
           "captureData": {
+            "type": "string",
             "nullable": true,
             "enum": [
               "started",
               "succeeded",
               "failed"
             ],
-            "type": "string",
             "description": "The status of the capture data associated with the scan",
             "example": "succeeded"
           },
@@ -1625,13 +1629,13 @@
             "description": "The date and time the capture data was last updated"
           },
           "body": {
+            "type": "string",
             "nullable": true,
             "enum": [
               "started",
               "succeeded",
               "failed"
             ],
-            "type": "string",
             "description": "The status of the body associated with the scan",
             "example": "started"
           },
@@ -1641,13 +1645,13 @@
             "description": "The date and time the body was last updated"
           },
           "fittedBody": {
+            "type": "string",
             "nullable": true,
             "enum": [
               "started",
               "succeeded",
               "failed"
             ],
-            "type": "string",
             "description": "The status of the fitted body associated with the scan",
             "example": null
           },
@@ -1657,13 +1661,13 @@
             "description": "The date and time the fitted body was last updated"
           },
           "measurement": {
+            "type": "string",
             "nullable": true,
             "enum": [
               "started",
               "succeeded",
               "failed"
             ],
-            "type": "string",
             "description": "The status of the measurement associated with the scan",
             "example": null
           },
@@ -1698,100 +1702,132 @@
         "type": "object",
         "properties": {
           "neckFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Neck circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "shoulderFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Shoulder circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "upperChestFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Upper chest circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "chestFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Chest circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "lowerChestFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Lower chest circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "waistFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Waist circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "waistNavyFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Waist circumference at the navel, the site used by the US Navy body fat method, in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "stomachFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Stomach circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "hipsFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Hips circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "upperThighLeftFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Left upper thigh circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "upperThighRightFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Right upper thigh circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "thighLeftFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Left thigh circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "thighRightFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Right thigh circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "lowerThighLeftFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Left lower thigh circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "lowerThighRightFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Right lower thigh circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "calfLeftFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Left calf circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "calfRightFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Right calf circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "ankleLeftFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Left ankle circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "ankleRightFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Right ankle circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "midArmRightFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Right mid arm circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "midArmLeftFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Left mid arm circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "lowerArmRightFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Right lower arm circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "lowerArmLeftFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Left lower arm circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "waistToHipRatio": {
-            "type": "number"
+            "type": "number",
+            "description": "Waist circumference divided by hip circumference. Unitless, rounded to 2 decimals."
           },
           "forearmLeftFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Left forearm circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "forearmRightFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Right forearm circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "wristLeftFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Left wrist circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "wristRightFit": {
-            "type": "number"
+            "type": "number",
+            "description": "Right wrist circumference in metres (metric) or inches (imperial). -1 when the measurement is not available."
           },
           "bmiPredicted": {
-            "type": "number"
+            "type": "number",
+            "description": "Body mass index predicted from the 3D body model, rounded to 1 decimal."
           },
           "bmiConfidence": {
-            "type": "number"
+            "type": "number",
+            "description": "Confidence score of the predicted body mass index, rounded to 3 decimals."
           },
           "bodyRoundnessIndex": {
-            "type": "number"
+            "type": "number",
+            "description": "Body roundness index (BRI). Unitless."
           },
           "fullBodyVolume": {
-            "type": "number"
+            "type": "number",
+            "description": "Total body volume in cubic metres (metric) or cubic feet (imperial)."
           }
         },
         "required": [
@@ -1833,6 +1869,7 @@
         "type": "object",
         "properties": {
           "bodyfatMethod": {
+            "type": "string",
             "enum": [
               "adam",
               "army",
@@ -1845,7 +1882,6 @@
               "extended_navy_thinboost",
               "tina_fit"
             ],
-            "type": "string",
             "description": "Bodyfat method for the scan",
             "example": "coco"
           },
@@ -1933,13 +1969,13 @@
             "example": "unique-scan-id"
           },
           "status": {
+            "type": "string",
             "enum": [
               "CREATED",
               "PROCESSING",
               "READY",
               "FAILED"
             ],
-            "type": "string",
             "description": "The current processing status of the scan.",
             "example": "PROCESSING"
           },
@@ -1949,11 +1985,11 @@
             "example": "prism-unique-scan-id"
           },
           "deviceConfigName": {
+            "type": "string",
             "enum": [
               "IPHONE_SCANNER",
               "ANDROID_SCANNER"
             ],
-            "type": "string",
             "description": "The device configuration used to capture this scan.",
             "example": "IPHONE_SCANNER"
           },
@@ -2014,6 +2050,7 @@
           },
           "measurements": {
             "nullable": true,
+            "description": "The body measurements of the scan, as also returned by `GET /scans/{scanId}/measurements`. `null` while they are not yet available.",
             "type": "object",
             "allOf": [
               {
@@ -2023,6 +2060,7 @@
           },
           "bodyfat": {
             "nullable": true,
+            "description": "The body composition of the scan, as also returned by `GET /scans/{scanId}/bodyfat`. `null` while it is not yet available.",
             "type": "object",
             "allOf": [
               {
@@ -2045,6 +2083,44 @@
           "updatedAt",
           "measurements",
           "bodyfat"
+        ]
+      },
+      "PageInfo": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string",
+            "nullable": true,
+            "description": "Opaque cursor of the last scan on this page. Pass it as the `cursor` query parameter to request the following page. Every non-empty page carries one, including the last; the list is exhausted when a page comes back with empty `results`, which is the only case in which the cursor is `null`.",
+            "example": "dW5pcXVlLXNjYW4taWQ="
+          }
+        },
+        "required": [
+          "cursor"
+        ]
+      },
+      "PaginatedScansDto": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "description": "The scans of the requested page, in the requested order.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScanDto"
+            }
+          },
+          "pageInfo": {
+            "description": "Where this page ends and how to request the next one.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PageInfo"
+              }
+            ]
+          }
+        },
+        "required": [
+          "results",
+          "pageInfo"
         ]
       },
       "ScanUploadUrlDto": {
@@ -2070,7 +2146,9 @@
         "properties": {
           "bodyShapePrediction": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "3D model bundle of the predicted body shape (ZIP). The signed URL is always returned and is valid for one hour, but it only resolves once the underlying file exists; until then the request fails.",
+            "example": "https://signed-url"
           }
         },
         "required": [
@@ -2082,31 +2160,45 @@
         "properties": {
           "previewImage": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "Preview image of the fitted body (PNG). The signed URL is always returned and is valid for one hour, but it only resolves once the underlying file exists; until then the request fails.",
+            "example": "https://signed-url"
           },
           "model": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "3D model of the fitted body (OBJ; PLY for the legacy point-colour configuration). The signed URL is always returned and is valid for one hour, but it only resolves once the underlying file exists; until then the request fails.",
+            "example": "https://signed-url"
           },
           "canonicalBody": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "3D model of the body in canonical A-pose (OBJ). The signed URL is always returned and is valid for one hour, but it only resolves once the underlying file exists; until then the request fails.",
+            "example": "https://signed-url"
           },
           "texture": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "Texture image for the 3D model (PNG). The signed URL is always returned and is valid for one hour, but it only resolves once the underlying file exists; until then the request fails.",
+            "example": "https://signed-url"
           },
           "material": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "Material definition for the 3D model (MTL). The signed URL is always returned and is valid for one hour, but it only resolves once the underlying file exists; until then the request fails.",
+            "example": "https://signed-url"
           },
           "stripes": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "The body stripes as OBJ files (ZIP). Only produced for the Kickemuit asset configurations, assetConfigId `1e3ca583-e7e2-40df-9ab3-c0f644c8343f` or `12b83e6c-7c76-46e3-ae82-26b3a87ce11c`; for any other configuration the URL never resolves. The signed URL is always returned and is valid for one hour, but it only resolves once the underlying file exists; until then the request fails.",
+            "example": "https://signed-url"
           },
           "captureVideo": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "A blurred copy of the capture video (MP4), kept for debugging. For a failed scan whose capture data was uploaded it can still be fetched through `GET /scans/{scanId}/asset-urls/capture-video`. The signed URL is always returned and is valid for one hour, but it only resolves once the underlying file exists; until then the request fails.",
+            "example": "https://signed-url"
           }
         },
         "required": [
@@ -2123,6 +2215,7 @@
         "type": "object",
         "properties": {
           "bodyfatMethod": {
+            "type": "string",
             "enum": [
               "adam",
               "army",
@@ -2135,7 +2228,6 @@
               "extended_navy_thinboost",
               "tina_fit"
             ],
-            "type": "string",
             "description": "A new bodyfat method to to use for the scan",
             "example": "coco"
           }
@@ -2148,7 +2240,9 @@
         "type": "object",
         "properties": {
           "version": {
-            "type": "string"
+            "type": "string",
+            "description": "The version of the terms of service being accepted.",
+            "example": "1"
           }
         }
       },
@@ -2156,20 +2250,30 @@
         "type": "object",
         "properties": {
           "userId": {
-            "type": "string"
+            "type": "string",
+            "description": "The unique ID of the user in the Prism Hosted API.",
+            "example": "unique-user-id"
           },
           "userToken": {
-            "type": "string"
+            "type": "string",
+            "description": "The partner-provided unique user token.",
+            "example": "unique-user-token"
           },
           "accepted": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the user accepted the terms of service.",
+            "example": true
           },
           "version": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "The version of the terms of service the acceptance refers to. null when none was given.",
+            "example": "1"
           },
           "acceptanceDate": {
-            "type": "string"
+            "type": "string",
+            "description": "The date and time the acceptance was recorded (ISO 8601, UTC).",
+            "example": "2025-01-01T00:00:00.000Z"
           }
         },
         "required": [
@@ -2184,40 +2288,52 @@
         "type": "object",
         "properties": {
           "scan": {
-            "type": "object"
+            "type": "object",
+            "description": "The scan the report is based on: its ID and creation time."
           },
           "user": {
-            "type": "object"
+            "type": "object",
+            "description": "The user at the time of the scan: ID, token, weight, height, age and sex."
           },
           "bodyFatPercentageReport": {
-            "type": "object"
+            "type": "object",
+            "description": "Body fat percentage with its health label and percentile."
           },
           "leanMassReport": {
-            "type": "object"
+            "type": "object",
+            "description": "Lean mass with its health label and percentile."
           },
           "fatMassReport": {
-            "type": "object"
+            "type": "object",
+            "description": "Fat mass with its health label and percentile."
           },
           "waistCircumferenceReport": {
-            "type": "object"
+            "type": "object",
+            "description": "Waist circumference with its health label and percentile."
           },
           "waistToHipRatioReport": {
-            "type": "object"
+            "type": "object",
+            "description": "Waist-to-hip ratio with its health label and percentile."
           },
           "waistToHeightRatioReport": {
-            "type": "object"
+            "type": "object",
+            "description": "Waist-to-height ratio with its health label and percentile."
           },
           "metabolismReport": {
-            "type": "object"
+            "type": "object",
+            "description": "Basal metabolic rate, energy expenditure estimates and cut/build recommendations."
           },
           "metabolicAgeReport": {
-            "type": "object"
+            "type": "object",
+            "description": "Metabolic age compared with chronological age, with percentile."
           },
           "appendicularLeanMassReport": {
-            "type": "object"
+            "type": "object",
+            "description": "Appendicular lean mass and its index in kg/m², with category, percentile, references and disclaimer."
           },
           "skeletalMuscleMassReport": {
-            "type": "object"
+            "type": "object",
+            "description": "Skeletal muscle mass and its index in kg/m², with category, percentile, references and disclaimer."
           }
         },
         "required": [
@@ -2278,13 +2394,13 @@
             "example": "unique-body-shape-prediction-id"
           },
           "status": {
+            "type": "string",
             "enum": [
               "CREATED",
               "PROCESSING",
               "READY",
               "FAILED"
             ],
-            "type": "string",
             "description": "The current body shape prediction status.",
             "example": "PROCESSING"
           },
