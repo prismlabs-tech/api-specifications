@@ -1319,7 +1319,7 @@
           },
           "researchConsent": {
             "type": "boolean",
-            "description": "Indicates whether the user has consented to their data being used for research.",
+            "description": "Whether the user agrees that their data may be used for research. If Prism has excluded your account from research, the stored value is always `false`: `true` is stored as `false`, and a `PATCH` that omits this field stores `false`. Otherwise Prism stores the value you send, and a `PATCH` that omits this field leaves the stored value unchanged.",
             "example": true
           },
           "termsOfService": {
@@ -1442,7 +1442,7 @@
           },
           "researchConsent": {
             "type": "boolean",
-            "description": "Indicates whether the user has consented to their data being used for research.",
+            "description": "Whether the user agrees that their data may be used for research, as stored. If Prism has excluded your account from research, this is always `false`, whatever was sent.",
             "example": true
           }
         },
@@ -1548,7 +1548,7 @@
           },
           "researchConsent": {
             "type": "boolean",
-            "description": "Indicates whether the user has consented to their data being used for research.",
+            "description": "Whether the user agrees that their data may be used for research. If Prism has excluded your account from research, the stored value is always `false`: `true` is stored as `false`, and a `PATCH` that omits this field stores `false`. Otherwise Prism stores the value you send, and a `PATCH` that omits this field leaves the stored value unchanged.",
             "example": true
           }
         }
