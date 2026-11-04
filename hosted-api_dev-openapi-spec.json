@@ -1241,6 +1241,7 @@
           },
           "token": {
             "type": "string",
+            "maxLength": 255,
             "description": "A unique token for the user provided by the partner. Must not contain email addresses or other PII.",
             "example": "unique-user-token"
           },
@@ -1470,6 +1471,7 @@
           },
           "token": {
             "type": "string",
+            "maxLength": 255,
             "description": "A unique token for the user provided by the partner. Must not contain email addresses or other PII.",
             "example": "unique-user-token"
           },
