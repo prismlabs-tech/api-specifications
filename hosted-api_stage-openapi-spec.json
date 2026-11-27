@@ -609,8 +609,8 @@
                 "stripes",
                 "capture-video"
               ],
-              "example": "preview-image",
-              "type": "string"
+              "type": "string",
+              "example": "preview-image"
             }
           }
         ],
